@@ -9,11 +9,8 @@
     @include in-page-with-or-without-sidebar
         figure.with-picture
             @include media-breakpoint-up(desktop)
-                padding-left: $spacing5
-                padding-right: $spacing5
-            @include media-breakpoint-up(xxl)
-                padding-left: calc(#{$spacing5} * 2)
-                padding-right: calc(#{$spacing5} * 2)
+                padding-left: $spacing3
+                padding-right: $spacing3
             figcaption 
                 display: flex
                 margin-top: $spacing2
@@ -23,3 +20,11 @@
                     margin-left: unset
                     top: unset
                     width: 105px
+    @include in-page-without-sidebar
+        figure.with-picture
+            @include media-breakpoint-up(desktop)
+                padding-left: $spacing5
+                padding-right: $spacing5
+            @include media-breakpoint-up(xxl)
+                padding-left: calc(#{$spacing5} * 2)
+                padding-right: calc(#{$spacing5} * 2)
