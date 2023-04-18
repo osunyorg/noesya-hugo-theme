@@ -30,12 +30,13 @@
                 padding-right: calc(#{$spacing5} * 2)
 .block-chapter .chapter
     @include in-page-with-or-without-sidebar
-        .text
-            display: flex
-            width: 100%
-            .top 
-                flex: .5
-                padding-right: $spacing5
-                + * 
-                    flex: 1
-                
+        @include media-breakpoint-up(desktop)
+            .text
+                display: flex
+                width: 100%
+                .top 
+                    flex: .5
+                    padding-right: $spacing5
+                    + * 
+                        flex: 1
+                    
