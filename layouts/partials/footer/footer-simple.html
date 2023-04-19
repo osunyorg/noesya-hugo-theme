@@ -1,0 +1,49 @@
+<div class="container">
+  <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+    <p itemprop="name">noesya Paris</p>
+    <span itemprop="streetAddress">15 rue Hélène</span><br>
+    <span itemprop="postalCode">75017</span>&nbsp;
+    <span itemprop="addressLocality">Paris</span><br>
+    <span>France</span> 
+  </address>
+  <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+    <p itemprop="name">noesya Bordeaux</p>
+    <span itemprop="streetAddress">2 rue Louis Combes</span><br>
+    <span itemprop="postalCode">33000</span>&nbsp;
+    <span itemprop="addressLocality">Bordeaux</span><br>
+    <span>France</span> 
+  </address>
+  <nav aria-label="Navigation dans l'écosystème" class="ecosystem">
+    <ul> 
+      <li><a href="https://noesya.coop">site</a></li> 
+      <li><a href="https://gouvernance.noesya.coop">gouvernance</a></li> 
+      <li><a href="https://diagnostic.noesya.coop">diagnostic</a></li> 
+      <li> <a href="https://lab.noesya.coop">lab</a></li> 
+      <li><a href="https://reseau.noesya.coop">réseau</a></li> 
+      <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">histoires</span></li> 
+      <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">stack</span></li> 
+      <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">méthode</span></li>
+      <li>works</li> 
+    </ul>
+  </nav>
+  <div class="footer-logo">
+    <a href="https://bcorporation.net/certification/all-pending-b-corps" target="_blank" rel="noreferrer"><img src="/assets/images/logos/logo-bcorp-pending.svg" alt="Certified B-Corporation Pending" width="66" height="120"> </a>
+    <img src="/assets/images/illustrations/owl.png" alt="">
+  </div>
+</div>
+<div class="container">
+  <div class="footer-legals">
+    {{ $menu := partial "GetMenu" "legal" }}
+    {{ if $menu }}
+      {{ partial "commons/menu.html"
+        (dict
+          "kind"        "legal"
+          "level"       1
+          "class"       "nav-legal"
+        )}}
+    {{ end }}
+  </div>
+  <div class="footer-social">
+    {{ partial "footer/social.html" }}
+  </div>
+</div>

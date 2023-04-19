@@ -15,9 +15,66 @@ main
         bottom: 0
         height: 100vh
         width: 100%
-        .footer-logo img
-            filter: invert(1)
-        
+footer#document-footer
+    padding-bottom: $grid-gutter
+    padding-top: $grid-gutter
+    .container
+        position: relative
+    .footer-social li,
+    .footer-legals li
+        font-size: $body-size
+        color: transparentize(#FFFFFF, .2)
+        text-decoration: none
+        transition: color .3s ease
+        &:hover
+            color: transparentize(#FFFFFF, 0)
+            text-decoration: none
+    nav li,
+    nav li a,
+    nav li span
+        font-family: $heading-font-family
+        font-size: px2rem(32)
+        span
+            color: transparentize(#FFFFFF, .55)
+    @include media-breakpoint-up(desktop)
+        .footer-social li,
+        .footer-legals li
+            font-size: $body-size-desktop
+        address
+            width: col(3)
+            p
+                margin-bottom: $spacing1
+        nav
+            margin-left: calc(#{$grid-gutter} * 2)
+            width: col(5)
+        .footer-logo
+            align-items: flex-end
+            display: flex
+            justify-content: space-between
+            bottom: 0
+            left: $grid-gutter
+            position: absolute
+            width: col(6)
+            > img 
+                width: col(3, 6)
+                margin-right: $grid-gutter
+            a 
+                &::after
+                    display: none
+                img
+                    width: $grid-gutter
+        .container:first-of-type
+            justify-content: unset
+            gap: $grid-gutter
+        .container:last-of-type
+            justify-content: space-between
+            padding-top: $grid-gutter
+            ul
+                align-items: center
+                display: flex
+                gap: $spacing1
+                li + li
+                    margin: 0
 // Blocks
 .block-testimonials
     blockquote p
