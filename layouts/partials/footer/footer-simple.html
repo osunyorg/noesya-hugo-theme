@@ -18,12 +18,12 @@
       <li><a href="https://noesya.coop">site</a></li> 
       <li><a href="https://gouvernance.noesya.coop">gouvernance</a></li> 
       <li><a href="https://diagnostic.noesya.coop">diagnostic</a></li> 
-      <li> <a href="https://lab.noesya.coop">lab</a></li> 
+      <li><a href="https://lab.noesya.coop">lab</a></li> 
       <li><a href="https://reseau.noesya.coop">réseau</a></li> 
+      <li>works</li> 
       <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">histoires</span></li> 
       <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">stack</span></li> 
       <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">méthode</span></li>
-      <li>works</li> 
     </ul>
   </nav>
   <div class="footer-logo">
@@ -33,17 +33,16 @@
 </div>
 <div class="container">
   <div class="footer-legals">
-    {{ $menu := partial "GetMenu" "legal" }}
-    {{ if $menu }}
-      {{ partial "commons/menu.html"
-        (dict
-          "kind"        "legal"
-          "level"       1
-          "class"       "nav-legal"
-        )}}
-    {{ end }}
+    <ul class="nav-legal nav-level-1">
+      <li><a href="https://www.noesya.coop/mentions-legales/" target="_blank" rel="noreferrer" title="Mentions légales - lien externe">Mentions légales</a></li>
+      <li><a href="https://www.noesya.coop/politique-de-sobriete" target="_blank" rel="noreferrer" title="Politique de sobriété - lien externe">Politique de sobriété</a></li>
+    </ul>
   </div>
   <div class="footer-social">
-    {{ partial "footer/social.html" }}
+    <ul class="nav-social nav-level-1">
+      <li><a href="https://twitter.com/noesya_coop" target="_blank" rel="noreferrer" title="Twitter - lien externe">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/noesyacoop" target="_blank" rel="noreferrer" title="Linkedin - lien externe">LinkedIn</a></li>
+      <li><a href="mailto:contact@noesya.coop">contact@noesya.coop</a></li>
+    </ul>
   </div>
 </div>
