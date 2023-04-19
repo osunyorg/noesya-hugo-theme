@@ -16,30 +16,51 @@ main
         height: 100vh
         width: 100%
 footer#document-footer
+    font-size: $body-size-desktop
     padding-bottom: $grid-gutter
     padding-top: $grid-gutter
     .container
         position: relative
-    .footer-social li,
-    .footer-legals li
-        font-size: $body-size
+    ul li a
         color: transparentize(#FFFFFF, .2)
         text-decoration: none
         transition: color .3s ease
         &:hover
             color: transparentize(#FFFFFF, 0)
             text-decoration: none
+    .footer-social li,
+    .footer-legals li
+        font-size: $body-size-desktop
     nav li,
     nav li a,
     nav li span
         font-family: $heading-font-family
         font-size: px2rem(32)
+        text-decoration: none
         span
             color: transparentize(#FFFFFF, .55)
+    .footer-logo
+        align-items: flex-end
+        display: flex
+        justify-content: space-between
+    @include media-breakpoint-down(desktop)
+        nav li,
+        nav li a,
+        nav li span
+            font-size: px2rem(36)
+        .footer-logo
+            flex-direction: row-reverse
+            width: 100%
+            a::after
+                display: none
+            > img
+                width: col(3)
+        .container + .container div + div
+            margin-top: $spacing0
+    @include media-breakpoint-down(md)
+        .footer-logo > img
+            width: col(7)
     @include media-breakpoint-up(desktop)
-        .footer-social li,
-        .footer-legals li
-            font-size: $body-size-desktop
         address
             width: col(3)
             p
@@ -48,9 +69,6 @@ footer#document-footer
             margin-left: calc(#{$grid-gutter} * 2)
             width: col(5)
         .footer-logo
-            align-items: flex-end
-            display: flex
-            justify-content: space-between
             bottom: 0
             left: $grid-gutter
             position: absolute
@@ -58,11 +76,8 @@ footer#document-footer
             > img 
                 width: col(3, 6)
                 margin-right: $grid-gutter
-            a 
-                &::after
-                    display: none
-                img
-                    width: $grid-gutter
+            a img
+                width: $grid-gutter
         .container:first-of-type
             justify-content: unset
             gap: $grid-gutter
