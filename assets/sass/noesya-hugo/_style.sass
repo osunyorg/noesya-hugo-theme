@@ -43,6 +43,8 @@ footer#document-footer
         align-items: flex-end
         display: flex
         justify-content: space-between
+        a::after
+            display: none
     @include media-breakpoint-down(desktop)
         nav li,
         nav li a,
@@ -51,8 +53,6 @@ footer#document-footer
         .footer-logo
             flex-direction: row-reverse
             width: 100%
-            a::after
-                display: none
             > img
                 width: col(3)
         .container + .container div + div
