@@ -14,16 +14,18 @@
     <span>France</span> 
   </address>
   <nav aria-label="Navigation dans l'écosystème" class="ecosystem">
-    <ul> 
-      <li><a href="https://noesya.coop">site</a></li> 
-      <li><a href="https://gouvernance.noesya.coop">gouvernance</a></li> 
-      <li><a href="https://diagnostic.noesya.coop">diagnostic</a></li> 
-      <li><a href="https://lab.noesya.coop">lab</a></li> 
-      <li><a href="https://reseau.noesya.coop">réseau</a></li> 
-      <li>works</li> 
-      <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">histoires</span></li> 
-      <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">stack</span></li> 
-      <li><span title="Ce site sera disponible bientôt..." aria-hidden="true">méthode</span></li>
+    <ul>
+      {{ range site.Data.ecosystem.websites }}
+        <li>
+          {{ if eq .domain site.Params.ecosystem }}
+            {{ .title }}
+          {{ else if .pending }}
+            <span title="Ce site sera disponible bientôt..." aria-hidden="true">{{ .title }}</span>
+          {{ else }}
+            <a href="https://{{ .domain }}.noesya.coop">{{ .title }}</a>
+          {{ end }}
+        </li>
+      {{ end }}
     </ul>
   </nav>
   <div class="footer-logo">
