@@ -134,4 +134,10 @@ footer#document-footer
                     width: col(5)
                     + * 
                         width: col(7)
-                
+.block-posts--list article
+    @include media-breakpoint-up(desktop)
+        @include in-page-with-or-without-sidebar
+            padding-bottom: $spacing2
+            + article
+                margin-top: 0
+                padding-top: $spacing2
