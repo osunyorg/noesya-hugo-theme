@@ -1,7 +1,14 @@
 // System
-header#document-header nav
-    @include media-breakpoint-up(md)
-        padding-top: $grid-gutter
+header#document-header 
+    .logo
+        display: flex
+        font-size: $header-logo-font-size
+        font-style: italic
+        gap: $spacing1
+        text-decoration: none
+    nav
+        @include media-breakpoint-up(md)
+            padding-top: $grid-gutter
 main
     background: $color-background
     position: relative
