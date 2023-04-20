@@ -3,10 +3,16 @@ header#document-header
     .logo
         display: flex
         font-size: $header-logo-font-size
+        line-height: 120%
         font-style: italic
-        gap: $spacing1
+        gap: 24px
         text-decoration: none
+        @include media-breakpoint-down(desktop)
+            font-size: px2rem(22)
+            gap: 12px
     nav
+        @include media-breakpoint-down(desktop)
+            padding-top: 30px
         @include media-breakpoint-up(md)
             padding-top: $grid-gutter
 main
