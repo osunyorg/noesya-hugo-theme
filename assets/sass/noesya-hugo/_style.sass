@@ -41,7 +41,6 @@ footer#document-footer
     .footer-logo
         align-items: flex-end
         display: flex
-        justify-content: space-between
         a::after
             display: none
     @include media-breakpoint-down(desktop)
@@ -57,12 +56,13 @@ footer#document-footer
         .container + .container div + div
             margin-top: $spacing0
     @include media-breakpoint-down(md)
-        .footer-logo > img
-            width: col(7)
+        .footer-logo
+            justify-content: space-between 
+            > img
+                width: col(5)
     @include media-breakpoint-up(desktop)
         display: flex
         flex-direction: column
-        justify-content: space-between
         address
             width: col(3)
             p
@@ -74,12 +74,12 @@ footer#document-footer
             bottom: 0
             left: $grid-gutter
             position: absolute
-            width: col(6)
+            width: col(5)
             > img 
-                width: col(3, 6)
-                margin-right: $grid-gutter
-            a img
-                width: $grid-gutter
+                margin-left: calc(#{$grid-gutter} * 5)
+                width: col(1.8, 5)
+            a
+                width: col(.93, 5)
         .container:first-of-type
             justify-content: unset
             gap: $grid-gutter
@@ -92,6 +92,9 @@ footer#document-footer
                 gap: $spacing1
                 li + li
                     margin: 0
+    @include media-breakpoint-up(xxl)
+        .footer-logo > img
+            width: col(1.5, 5)
 // Blocks
 .block-testimonials
     blockquote p
