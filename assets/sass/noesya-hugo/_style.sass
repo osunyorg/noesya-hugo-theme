@@ -107,15 +107,26 @@ footer#document-footer
                     margin: 0
     @include media-breakpoint-up(xxl)
         justify-content: flex-end
-        nav li,
-        nav li a,
-        nav li span
-            @include h1
         .footer-logo 
             > img
-                width: col(2, 5)
+                width: col(1.5, 5)
             a
                 width: col(1.2, 5)
+        @media screen and (min-height: 800px)
+            nav li,
+            nav li a,
+            nav li span
+                font-size: px2rem(55)
+                margin-bottom: $spacing1
+        @media screen and (min-height: 900px)
+            nav li,
+            nav li a,
+            nav li span
+                @include h1
+                margin-bottom: 0
+            .footer-logo 
+                > img
+                    width: col(2, 5)
 // Blocks
 .block-testimonials
     blockquote p
