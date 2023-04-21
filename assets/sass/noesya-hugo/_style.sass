@@ -106,8 +106,16 @@ footer#document-footer
                 li + li
                     margin: 0
     @include media-breakpoint-up(xxl)
-        .footer-logo > img
-            width: col(1.5, 5)
+        justify-content: flex-end
+        nav li,
+        nav li a,
+        nav li span
+            @include h1
+        .footer-logo 
+            > img
+                width: col(2, 5)
+            a
+                width: col(1.2, 5)
 // Blocks
 .block-testimonials
     blockquote p
