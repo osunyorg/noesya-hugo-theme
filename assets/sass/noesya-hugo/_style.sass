@@ -132,8 +132,6 @@ footer#document-footer
                     width: col(1.85, 5)
 // Blocks
 .block-testimonials
-    blockquote p
-        text-align: center
     .signature + .meta
         font-family: $body-font-family
     figcaption
@@ -160,6 +158,9 @@ footer#document-footer
             margin-right: auto
             @include media-breakpoint-down(desktop)
                 width: 100%
+    @include media-breakpoint-up(desktop)
+        blockquote p
+            text-align: center
 .block-chapter .chapter
     @include in-page-with-or-without-sidebar
         @include media-breakpoint-up(desktop)
