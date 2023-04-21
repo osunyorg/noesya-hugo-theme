@@ -50,7 +50,7 @@ footer#document-footer
         font-size: px2rem(32)
         text-decoration: none
         span
-            color: transparentize(#FFFFFF, .8)
+            color: transparentize(#FFFFFF, .55)
     .footer-logo
         align-items: flex-end
         display: flex
@@ -105,13 +105,15 @@ footer#document-footer
                 gap: $spacing1
                 li + li
                     margin: 0
-    @include media-breakpoint-up(xxl)
+    @include media-breakpoint-up(xl)
         justify-content: flex-end
         .footer-logo 
             > img
                 width: col(1.5, 5)
             a
                 width: col(1.2, 5)
+        nav li + li 
+            margin-top: 0
         @media screen and (min-height: 800px)
             nav li,
             nav li a,
