@@ -63,16 +63,25 @@ footer#document-footer
             font-size: px2rem(36)
         .footer-logo
             flex-direction: row-reverse
+            margin-top: $grid-gutter
             width: 100%
             > img
                 width: col(3)
-        .container + .container div + div
-            margin-top: $spacing0
-    @include media-breakpoint-down(md)
+        .container + .container 
+            margin-top: half($grid-gutter)
+            div + div
+                margin-top: $spacing0
+    @include media-breakpoint-down(desktop)
+        address > p
+            margin-bottom: $spacing1
+        nav li,
+        nav li a,
+        nav li span
+            line-height: 110%
         .footer-logo
             justify-content: space-between 
             > img
-                width: col(5)
+                width: col(4.4)
     @include media-breakpoint-up(desktop)
         display: flex
         flex-direction: column
