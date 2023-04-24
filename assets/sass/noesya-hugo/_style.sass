@@ -29,8 +29,11 @@ main
         width: 100%
 footer#document-footer
     font-size: $body-size-desktop
+    opacity: 0
     padding-bottom: $grid-gutter
     padding-top: $grid-gutter
+    &.is-visible
+        opacity: 1
     .container
         position: relative
     ul li a
