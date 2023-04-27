@@ -48,8 +48,9 @@ footer#document-footer
         opacity: 1
     .container
         position: relative
-        &:first-of-type
-            flex: 1
+        @media screen and (max-height: 800px)
+            &:first-of-type
+                flex: 1
     ul li a
         color: transparentize(#FFFFFF, .2)
         text-decoration: none
