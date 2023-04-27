@@ -1,4 +1,13 @@
 // System
+::selection
+    background: transparentize($color-accent, .7)
+    color: white
+    text-shadow: none
+
+::-moz-selection
+    background: transparentize($color-accent, .7)
+    color: white
+    text-shadow: none
 header#document-header 
     pointer-events: none
     .logo
@@ -39,6 +48,8 @@ footer#document-footer
         opacity: 1
     .container
         position: relative
+        &:first-of-type
+            flex: 1
     ul li a
         color: transparentize(#FFFFFF, .2)
         text-decoration: none
@@ -55,7 +66,7 @@ footer#document-footer
         font-family: $heading-font-family
         font-size: px2rem(32)
         text-decoration: none
-        span
+    nav li span
             color: transparentize(#FFFFFF, .55)
     .footer-logo
         align-items: flex-end
@@ -122,7 +133,9 @@ footer#document-footer
                 li + li
                     margin: 0
     @include media-breakpoint-up(xl)
-        justify-content: flex-end
+        justify-content: space-between
+        @media screen and (min-height: 800px)
+            justify-content: flex-end
         .footer-logo 
             > img
                 width: col(1.5, 5)
@@ -196,3 +209,37 @@ footer#document-footer
                 padding-top: $spacing2
                 .post-meta
                     top: $spacing2
+
+@media (prefers-color-scheme: dark)
+    ::selection
+        background: transparentize(white, .3)
+        color: $color-accent
+
+    ::-moz-selection
+        background: transparentize(white, .3)
+        color: $color-accent
+    main, 
+    .hero
+        background: black
+        color: white
+    body,
+    a, .link
+        color: white
+    header#document-header nav .logo 
+        color: white
+        img
+            filter: invert(1)
+    footer#document-footer
+        background: white
+        color: black
+        .footer-logo a img
+            filter: invert(1)
+        ul li a
+            color: transparentize(black, .35)
+            &:hover
+                color: transparentize(black, 0)
+        nav li span
+                color: transparentize(black, .45)
+    .post-meta,
+    .block-testimonials .signature + .meta
+        color: $color-text-alt-dark
