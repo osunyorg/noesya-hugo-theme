@@ -106,7 +106,6 @@ footer#document-footer
                 margin-bottom: $spacing1
         nav
             margin-left: auto
-            margin-top: -14px
             width: col(5)
         .footer-logo
             bottom: 0
@@ -160,10 +159,12 @@ footer#document-footer
             nav li + li
                 margin-top: $spacing0
     @include media-breakpoint-up(xxl)
-        nav li,
-        nav li a,
-        nav li span
-            @include h1
+        nav 
+            margin-top: -14px
+            li,
+            li a,
+            li span
+                @include h1
 // Blocks
 .block-testimonials
     .signature + .meta
