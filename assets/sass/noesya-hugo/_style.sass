@@ -120,6 +120,7 @@ footer#document-footer
         .container:first-of-type
             justify-content: unset
             gap: $grid-gutter
+            flex: 1
         .container:last-of-type
             justify-content: space-between
             padding-top: $grid-gutter
@@ -131,15 +132,13 @@ footer#document-footer
                     margin: 0
     @include media-breakpoint-up(xl)
         justify-content: space-between
-        @media screen and (min-height: 800px)
-            justify-content: flex-end
-        .footer-logo 
-            > img
-                width: col(1.5, 5)
+        .footer-logo
             a
-                width: col(1.2, 5)
+                width: $grid-gutter
         nav li + li 
             margin-top: 0
+        @media screen and (max-height: 800px)
+            justify-content: flex-end
         @media screen and (min-height: 800px)
             nav li,
             nav li a,
@@ -159,6 +158,9 @@ footer#document-footer
             nav li + li
                 margin-top: $spacing0
     @include media-breakpoint-up(xxl)
+        padding-top: calc(#{$grid-gutter} * 2)
+        .footer-logo
+            bottom: $grid-gutter
         nav 
             margin-top: -14px
             li,
