@@ -3,20 +3,21 @@
     background: transparentize($color-accent, .7)
     color: white
     text-shadow: none
-
 ::-moz-selection
     background: transparentize($color-accent, .7)
     color: white
     text-shadow: none
+
 header#document-header 
     pointer-events: none
     .logo
         display: flex
         font-size: $header-logo-font-size
-        line-height: 120%
         font-style: italic
         gap: 24px
+        line-height: 120%
         text-decoration: none
+        transition: opacity .35s
         @include media-breakpoint-down(desktop)
             font-size: px2rem(22)
             gap: 12px
@@ -27,6 +28,16 @@ header#document-header
             padding-top: $grid-gutter
         .container > *
             pointer-events: all
+    html.is-scrolling-down:not(.has-menu-opened) &
+        @include media-breakpoint-down(desktop)
+            transform: translateY(0)
+            .logo
+                opacity: 0
+        @include media-breakpoint-up(desktop)
+            &:not(:hover)
+                transform: translateY(0)
+                .logo
+                    opacity: 0
 main
     background: $color-background
     position: relative
@@ -223,7 +234,6 @@ footer#document-footer
     ::selection
         background: transparentize(white, .3)
         color: $color-accent
-
     ::-moz-selection
         background: transparentize(white, .3)
         color: $color-accent
