@@ -38,6 +38,7 @@ header#document-header
         @include media-breakpoint-down(desktop)
             font-size: px2rem(22)
             gap: 12px
+            z-index: 9
     nav
         @include media-breakpoint-down(desktop)
             padding-top: 30px
@@ -102,10 +103,6 @@ header#document-header
             transform: translateX(100%)
             transition: transform .3s ease
             width: 100%
-            @include media-breakpoint-up(md)
-                width: calc(50vw + min(1040px, calc(100vw - 390px)) / 2)
-            @include media-breakpoint-up(lg)
-                width: calc(50vw + min(1010px, calc((100vw - 100px) * (10/12) - 110px)) / 2)
             ul 
                 @extend .container
                 align-items: flex-start
@@ -116,6 +113,20 @@ header#document-header
                     transition: color .3s ease
                 &:hover a
                     color: transparentize($color-accent, .45)
+            @include media-breakpoint-up(md)
+                width: calc(50vw + min(1040px, calc(100vw - 390px)) / 2)
+            @include media-breakpoint-up(lg)
+                width: calc(50vw + min(1010px, calc((100vw - 100px) * (10/12) - 110px)) / 2)
+            @include media-breakpoint-down(md)
+                align-items: flex-start
+                margin: 0
+                max-height: unset
+                ul 
+                    padding-top: $spacing4
+                    li 
+                        border: none
+                        a
+                            @include h1
                 
     html.is-scrolling-down:not(.has-menu-opened) &
         @include media-breakpoint-down(desktop)
