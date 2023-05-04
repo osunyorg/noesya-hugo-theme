@@ -85,11 +85,11 @@ header#document-header
                     transform: rotate(45deg) scaleX(0)
             &:hover
                 &::before
-                    animation: 0.3s 0s menu-hovered ease-in-out
+                    animation: 0.3s 0.14s menu-hovered ease-in-out
                 span:first-of-type
                     animation: 0.3s 0.07s menu-hovered ease-in-out
                 &::after
-                    animation: 0.3s 0.14s menu-hovered ease-in-out
+                    animation: 0.3s 0s menu-hovered ease-in-out
         .menu
             align-items: center
             backface-visibility: hidden
@@ -172,8 +172,10 @@ header#document-header
     a, .link,
     .block-testimonials blockquote p
         color: white
+        transition: color .3s ease
     header#document-header nav .logo 
         color: black
+        transition: color .3s ease
         img
             filter: invert(1)
 main
