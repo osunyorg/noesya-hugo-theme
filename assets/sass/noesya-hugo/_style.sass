@@ -353,17 +353,6 @@ h1 a:hover
     @include media-breakpoint-up(desktop)
         blockquote p
             text-align: center
-.block-chapter .chapter
-    @include in-page-with-or-without-sidebar
-        @include media-breakpoint-up(desktop)
-            .text
-                display: flex
-                width: 100%
-                gap: $grid-gutter
-                .top 
-                    width: col(5)
-                    + * 
-                        width: col(7)
 .block-posts--list article
     @include media-breakpoint-up(desktop)
         @include in-page-with-or-without-sidebar
