@@ -138,30 +138,43 @@ header#document-header
                 transform: translateY(0)
                 .logo
                     opacity: 0
-.has-menu-opened header#document-header 
-    nav button[type="button"][aria-expanded="true"]
-        span:not(:first-of-type)
+.has-menu-opened 
+    header#document-header 
+        nav button[type="button"][aria-expanded="true"]
+            span:not(:first-of-type)
+                &::after
+                    background: $color-accent
+                    content: ""
+                    transform: rotate(-45deg) scaleX(1)
+                    transition-delay: 0.15s
+                &::before
+                    background: $color-accent
+                    content: ""
+                    transform: rotate(45deg) scaleX(1)
+                    transition-delay: 0.25s
             &::after
-                background: $color-accent
-                content: ""
-                transform: rotate(-45deg) scaleX(1)
+                transform: translateY(9px) scaleX(0)
                 transition-delay: 0.15s
+            span:first-of-type
+                transform: scaleX(0)
+                transition-delay: 0s
             &::before
-                background: $color-accent
-                content: ""
-                transform: rotate(45deg) scaleX(1)
-                transition-delay: 0.25s
-        &::after
-            transform: translateY(9px) scaleX(0)
-            transition-delay: 0.15s
-        span:first-of-type
-            transform: scaleX(0)
-            transition-delay: 0s
-        &::before
-            transform: translateY(-9px) scaleX(0)
-            transition-delay: 0.1s
-    .menu
-        transform: translateX(0)
+                transform: translateY(-9px) scaleX(0)
+                transition-delay: 0.1s
+        .menu
+            transform: translateX(0)
+    main, 
+    .hero
+        background: black
+        color: white
+    body,
+    a, .link,
+    .block-testimonials blockquote p
+        color: white
+    header#document-header nav .logo 
+        color: black
+        img
+            filter: invert(1)
 main
     background: $color-background
     position: relative
