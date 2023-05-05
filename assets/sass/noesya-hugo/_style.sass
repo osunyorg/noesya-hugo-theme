@@ -23,9 +23,11 @@ body:not(.is-loaded) *
 ::-moz-selection
     background: transparentize($color-accent, .7)
     color: white
-    text-shadow: none
+    text-shadow: none 
 main
     min-height: 100vh
+    &, .hero
+        transition: background .3s ease, color .3s ease
 header#document-header 
     pointer-events: none
     .logo
@@ -358,7 +360,6 @@ footer#document-footer
     .hero
         background: black
         color: white
-        transition: background .3s ease, color .3s ease
     a,
     .link,
     .categories__term .posts--list .post a
