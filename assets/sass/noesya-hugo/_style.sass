@@ -139,46 +139,6 @@ header#document-header
                 transform: translateY(0)
                 .logo
                     opacity: 0
-.has-menu-opened 
-    header#document-header 
-        nav button[type="button"][aria-expanded="true"]
-            span:not(:first-of-type)
-                &::after
-                    background: $color-accent
-                    content: ""
-                    transform: rotate(-45deg) scaleX(1)
-                    transition-delay: 0.15s
-                &::before
-                    background: $color-accent
-                    content: ""
-                    transform: rotate(45deg) scaleX(1)
-                    transition-delay: 0.25s
-            &::after
-                transform: translateY(9px) scaleX(0)
-                transition-delay: 0.15s
-            span:first-of-type
-                transform: scaleX(0)
-                transition-delay: 0s
-            &::before
-                transform: translateY(-9px) scaleX(0)
-                transition-delay: 0.1s
-        .menu
-            transform: translateX(0)
-    main, 
-    .hero
-        background: black
-        color: white
-        transition: background .3s ease, color .3s ease
-    body,
-    a, .link,
-    .block-testimonials blockquote p
-        color: white
-        transition: color .3s ease
-    header#document-header nav .logo 
-        color: black
-        transition: color .3s ease
-        img
-            filter: invert(1)
 main
     background: $color-background
     position: relative
@@ -364,6 +324,54 @@ h1 a:hover
                 .post-meta
                     top: $spacing2
 
+// Menu opened
+
+.has-menu-opened 
+    header#document-header 
+        nav button[type="button"][aria-expanded="true"]
+            span:not(:first-of-type)
+                &::after
+                    background: $color-accent
+                    content: ""
+                    transform: rotate(-45deg) scaleX(1)
+                    transition-delay: 0.15s
+                &::before
+                    background: $color-accent
+                    content: ""
+                    transform: rotate(45deg) scaleX(1)
+                    transition-delay: 0.25s
+            &::after
+                transform: translateY(9px) scaleX(0)
+                transition-delay: 0.15s
+            span:first-of-type
+                transform: scaleX(0)
+                transition-delay: 0s
+            &::before
+                transform: translateY(-9px) scaleX(0)
+                transition-delay: 0.1s
+        .menu
+            transform: translateX(0)
+    main, 
+    .hero
+        background: black
+        color: white
+        transition: background .3s ease, color .3s ease
+    a,
+    .link,
+    .categories__term .posts--list .post a
+        @include link(white)
+        transition: color .3s ease
+    .block-testimonials blockquote p
+        color: white
+        transition: color .3s ease
+    header#document-header nav .logo 
+        color: black
+        transition: color .3s ease
+        img
+            filter: invert(1)
+
+// Dark mode
+
 @media (prefers-color-scheme: dark)
     ::selection
         background: transparentize(white, .3)
@@ -378,8 +386,7 @@ h1 a:hover
     body,
     .block-testimonials blockquote p
         color: white
-    a, 
-    .link
+    a, .link
         @include link(white)
     header#document-header nav 
         .logo
@@ -407,11 +414,15 @@ h1 a:hover
         color: $color-text-alt-dark
     .avatar
         background-color: black
+    ol.persons--list > li:hover
+        color: white
     .has-menu-opened
         main, 
         .hero
             background: white
-            color: black
+            color: $color-accent
+            a
+                @include link($color-accent)
         header#document-header nav 
             button
                 span:not(first-of-type)::before, 
