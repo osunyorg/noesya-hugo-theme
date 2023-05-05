@@ -92,12 +92,14 @@ header#document-header
                 &::after
                     animation: 0.3s 0s menu-hovered ease-in-out
         .menu
-            align-items: center
             backface-visibility: hidden
             background: white
             bottom: 0
-            display: flex
+            height: 100vh
+            max-height: unset
+            margin-top: 0
             overflow: hidden
+            padding-top: 253px
             position: fixed
             right: 0
             top: 0
@@ -108,10 +110,15 @@ header#document-header
                 @extend .container
                 align-items: flex-start
                 flex-direction: column
+                gap: $spacing0
+                margin: 0
                 a
                     @include h2
+                    padding: 0
                     text-decoration: none
                     transition: color .3s ease
+                    @include media-breakpoint-up(md)
+                        @include h1
                 &:hover a
                     color: transparentize($color-accent, .45)
             @include media-breakpoint-up(md)
