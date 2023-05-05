@@ -3,3 +3,6 @@ params:
   logo:
     header: "/assets/images/logos/logo-noesya.svg"
     footer: "/assets/images/logos/logo-noesya.svg"
+  seo:
+    title:
+      separator: "•"
