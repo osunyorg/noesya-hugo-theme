@@ -14,6 +14,8 @@
         width: 20px
     
 // System
+body:not(.is-loaded) *
+    transition-duration: 0s !important
 ::selection
     background: transparentize($color-accent, .7)
     color: white
