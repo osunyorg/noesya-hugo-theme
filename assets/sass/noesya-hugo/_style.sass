@@ -1,18 +1,16 @@
 // Keyframes
 @keyframes menu-hovered
     0%
-        left: auto
-        right: 15px
+        right: 0
         width: 20px
     50%
-        left: auto
-        right: 15px
+        right: auto
         width: 3px
     50.1%
-        left: 15px
+        right: 17px
         width: 3px
     100%
-        left: 15px
+        right: 0
         width: 20px
     
 // System
@@ -49,7 +47,7 @@ header#document-header
             pointer-events: all
         button[type="button"]
             align-items: center
-            justify-content: center
+            justify-content: flex-end
             display: flex
             height: 50px
             width: 50px
@@ -59,7 +57,7 @@ header#document-header
                 content: ''
                 font-size: 0
                 height: 1px
-                left: 15px
+                right: 0
                 position: absolute
                 transform-origin: center
                 transition: transform 0.28s 0.2s ease-in-out
