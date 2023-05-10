@@ -26,8 +26,9 @@ body:not(.is-loaded) *
     text-shadow: none 
 main
     min-height: 100vh
-    &, .hero
-        transition: background .3s ease, color .3s ease
+    transition: background .3s ease, color .3s ease
+.hero
+    transition: color .3s ease
 header#document-header 
     pointer-events: none
     .logo
@@ -59,8 +60,6 @@ header#document-header
             display: flex
             height: 50px
             justify-content: flex-end
-            position: absolute
-            right: $grid-gutter
             width: 50px
             z-index: 9
             span, span:first-of-type, &::after, &::before
@@ -370,9 +369,10 @@ footer#document-footer
                 transition-delay: 0.1s
         .menu
             transform: translateX(0)
-    main, 
-    .hero
+    main
         background: black
+        color: white
+    .hero
         color: white
     a,
     .link,
@@ -397,12 +397,12 @@ footer#document-footer
     ::-moz-selection
         background: transparentize(white, .3)
         color: $color-accent
-    main, 
-    .hero
+    main
         background: black
         color: white
     body,
-    .block-testimonials blockquote p
+    .block-testimonials blockquote p,
+    .hero
         color: white
     a, .link
         @include link(white)
@@ -435,13 +435,18 @@ footer#document-footer
     ol.persons--list > li:hover
         color: white
     .has-menu-opened
-        main, 
-        .hero
+        main
             background: white
             color: $color-accent
             a
                 @include link($color-accent)
-        header#document-header nav 
+        .hero
+            color: $color-accent
+        header#document-header nav
+            .logo 
+                color: white
+                img
+                    filter: invert(0) 
             button
                 span:not(first-of-type)::before, 
                 span:not(first-of-type)::after
