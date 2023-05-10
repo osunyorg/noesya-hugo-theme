@@ -191,8 +191,9 @@ footer#document-footer
     nav li a,
     nav li span
         font-family: $heading-font-family
-        font-size: px2rem(32)
         text-decoration: none
+        @media screen and (min-height: 800px)
+            font-size: px2rem(32)
     nav li span
             color: transparentize(#FFFFFF, .55)
     .footer-logo
@@ -244,6 +245,9 @@ footer#document-footer
             > img 
                 margin-left: calc(#{$grid-gutter} * 5)
                 width: col(1.8, 5)
+                @media screen and (max-height: 800px)
+                    width: col(1.5, 5)
+
             a
                 width: col(.93, 5)
         .container:first-of-type
@@ -283,9 +287,6 @@ footer#document-footer
             .footer-logo 
                 > img
                     width: col(1.85, 5)
-        @media screen and (max-height: 800px)
-            nav li + li
-                margin-top: $spacing0
     @include media-breakpoint-up(xxl)
         padding-top: calc(#{$grid-gutter} * 2)
         .footer-logo
@@ -296,6 +297,9 @@ footer#document-footer
             li a,
             li span
                 @include h1
+            @media screen and (min-height: 800px)
+                li + li
+                    margin-top: $spacing0
 // Blocks
 .block-testimonials
     .signature + .meta
@@ -416,11 +420,11 @@ footer#document-footer
         .footer-logo a img
             filter: invert(1)
         ul li a
-            color: transparentize(black, .35)
+            color: transparentize(black, .25)
             &:hover
                 color: transparentize(black, 0)
         nav li span
-                color: transparentize(black, .45)
+                color: transparentize(black, .35)
     .post-meta time,
     .block-testimonials .signature + .meta
         color: $color-text-alt-dark
