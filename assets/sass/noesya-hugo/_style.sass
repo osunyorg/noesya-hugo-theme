@@ -190,42 +190,54 @@ footer#document-footer
     nav li a,
     nav li span
         font-family: $heading-font-family
+        font-size: px2rem(22)
+        line-height: px2rem(36)
         text-decoration: none
-        @media screen and (min-height: 800px)
-            font-size: px2rem(32)
     nav li span
-            color: transparentize(#FFFFFF, .55)
+            color: transparentize(white, .45)
     .footer-logo
         align-items: flex-end
         display: flex
         a::after
             display: none
-    @include media-breakpoint-down(desktop)
+    @include media-breakpoint-up(xxl)
+        padding-top: calc(#{$grid-gutter} * 2)
+        .footer-logo
+            bottom: $grid-gutter
+        nav 
+            margin-top: -14px
+            @media screen and (min-height: 800px)
+                li + li
+                    margin-top: $spacing0
+    @include media-breakpoint-up(xl)
+        justify-content: space-between
+        .footer-logo
+            a
+                width: $grid-gutter
+        nav li + li 
+            margin-top: 0
+        @media screen and (max-height: 800px)
+            justify-content: flex-end
+        @media screen and (min-height: 950px)
+            nav li,
+            nav li a,
+            nav li span
+                margin-bottom: 0
+            .footer-logo 
+                > img
+                    width: col(1.85, 5)
+    @include media-breakpoint-up(lg)
         nav li,
         nav li a,
         nav li span
-            font-size: px2rem(36)
-        .footer-logo
-            flex-direction: row-reverse
-            margin-top: $grid-gutter
-            width: 100%
-            > img
-                width: col(3)
-        .container + .container 
-            margin-top: half($grid-gutter)
-            div + div
-                margin-top: $spacing0
-    @include media-breakpoint-down(desktop)
-        address > p
-            margin-bottom: $spacing1
+            font-size: px2rem(40)
+            line-height: 1.4
+    @media screen and (min-height: 850px)
         nav li,
         nav li a,
         nav li span
-            line-height: 110%
-        .footer-logo
-            justify-content: space-between 
-            > img
-                width: col(4.4)
+            font-size: px2rem(55)
+            line-height: px2rem(75)
     @include media-breakpoint-up(desktop)
         display: flex
         flex-direction: column
@@ -236,8 +248,14 @@ footer#document-footer
         nav
             margin-left: auto
             width: col(5)
+            @media screen and (max-height: 700px)
+                li,
+                li a,
+                li span
+                    font-size: px2rem(32)
+                    line-height: px2rem(45)
         .footer-logo
-            bottom: 0
+            bottom: $grid-gutter
             left: $grid-gutter
             position: absolute
             width: col(5)
@@ -246,7 +264,6 @@ footer#document-footer
                 width: col(1.8, 5)
                 @media screen and (max-height: 800px)
                     width: col(1.5, 5)
-
             a
                 width: col(.93, 5)
         .container:first-of-type
@@ -255,50 +272,36 @@ footer#document-footer
             flex: 1
         .container:last-of-type
             justify-content: space-between
-            padding-top: $grid-gutter
+            padding-top: 0
             ul
                 align-items: center
                 display: flex
                 gap: $spacing1
                 li + li
                     margin: 0
-    @include media-breakpoint-up(xl)
-        justify-content: space-between
+    @include media-breakpoint-down(desktop)
+        address > p
+            margin-bottom: $spacing1
+        nav li,
+        nav li a,
+        nav li span
+            font-size: px2rem(36)
+            line-height: 1.4
         .footer-logo
-            a
-                width: $grid-gutter
-        nav li + li 
-            margin-top: 0
-        @media screen and (max-height: 800px)
-            justify-content: flex-end
-        @media screen and (min-height: 800px)
-            nav li,
-            nav li a,
-            nav li span
-                font-size: px2rem(55)
-                margin-bottom: $spacing1
-        @media screen and (min-height: 900px)
-            nav li,
-            nav li a,
-            nav li span
-                @include h1
-                margin-bottom: 0
-            .footer-logo 
-                > img
-                    width: col(1.85, 5)
-    @include media-breakpoint-up(xxl)
-        padding-top: calc(#{$grid-gutter} * 2)
-        .footer-logo
-            bottom: $grid-gutter
-        nav 
-            margin-top: -14px
-            li,
-            li a,
-            li span
-                @include h1
-            @media screen and (min-height: 800px)
-                li + li
-                    margin-top: $spacing0
+            flex-direction: row-reverse
+            margin-top: $grid-gutter
+            width: 100%
+            justify-content: space-between 
+            > img
+                width: col(3)
+        .container + .container 
+            margin-top: half($grid-gutter)
+            div + div
+                margin-top: $spacing0
+    @include media-breakpoint-down(md)
+        .footer-logo > img
+            width: col(4.4)
+                    
 // Blocks
 .block-testimonials
     .signature + .meta
