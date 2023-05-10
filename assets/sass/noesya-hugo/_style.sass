@@ -107,7 +107,6 @@ header#document-header
             max-height: unset
             margin-top: 0
             overflow: hidden
-            padding-top: 253px
             position: fixed
             right: 0
             top: 0
@@ -129,16 +128,18 @@ header#document-header
                         @include h1
                 &:hover a
                     color: transparentize($color-accent, .35)
-            @include media-breakpoint-up(md)
+            @include media-breakpoint-up(desktop)
+                padding-top: 253px
                 width: calc(50vw + min(1040px, calc(100vw - 390px)) / 2)
             @include media-breakpoint-up(lg)
                 width: calc(50vw + min(1010px, calc((100vw - 100px) * (10/12) - 110px)) / 2)
-            @include media-breakpoint-down(md)
-                align-items: flex-start
+            @include media-breakpoint-down(desktop)
                 margin: 0
                 max-height: unset
                 ul 
-                    padding-top: $spacing4
+                    align-items: flex-start
+                    justify-content: center
+                    height: 100%
                     li 
                         border: none
                         a
@@ -369,24 +370,28 @@ footer#document-footer
                 transition-delay: 0.1s
         .menu
             transform: translateX(0)
-    main
-        background: black
-        color: white
-    .hero
-        color: white
-    a,
-    .link,
-    .categories__term .posts--list .post a
-        @include link(white)
-        transition: color .3s ease
-    .block-testimonials blockquote p
-        color: white
-        transition: color .3s ease
     header#document-header nav .logo 
-        color: black
+        color: white
         transition: color .3s ease
-        img
-            filter: invert(1)
+    @include media-breakpoint-up(desktop)
+        main
+            background: black
+            color: white
+        .hero
+            color: white
+        header#document-header nav .logo 
+            color: black
+            transition: color .3s ease
+            img
+                filter: invert(1)
+        .block-testimonials blockquote p
+            color: white
+            transition: color .3s ease
+        a,
+        .link,
+        .categories__term .posts--list .post a
+            @include link(white)
+            transition: color .3s ease
 
 // Dark mode
 
