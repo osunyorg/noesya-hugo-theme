@@ -1,7 +1,7 @@
 class Footer {
     constructor (selector) {
         this.element = document.querySelector(selector);
-        this.limit = window.innerHeight / 2;
+        this.limit = window.innerHeight / 4;
         
         this.listen();
     }
@@ -15,7 +15,7 @@ class Footer {
     }
 
     resize () {
-        this.limit = window.innerHeight / 2;
+        this.limit = window.innerHeight / 4;
     }
 
     onScroll () {
