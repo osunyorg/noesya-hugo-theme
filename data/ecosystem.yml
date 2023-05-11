@@ -11,6 +11,8 @@ websites:
     title: réseau
   - domain: works
     title: works
+  - domain: sane
+    title: sane
   - domain: histoires
     title: histoires
     pending: true
