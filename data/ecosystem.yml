@@ -13,6 +13,7 @@ websites:
     title: works
   - domain: sane
     title: sane
+    pending: true
   - domain: histoires
     title: histoires
     pending: true
