@@ -55,6 +55,7 @@ header#document-header
             padding-top: $grid-gutter
         .container 
             align-items: flex-start
+            background: red
             height: $header-logo-height
             @include media-breakpoint-up(md)
                 height: $header-logo-height-desktop
@@ -350,7 +351,6 @@ footer#document-footer
                     top: $spacing2
 
 // Menu opened
-
 .has-menu-opened 
     header#document-header 
         nav button[type="button"][aria-expanded="true"]
@@ -424,8 +424,8 @@ footer#document-footer
         .menu
             background: black
     header#document-header nav button[type="button"]
-            span:first-of-type, &::before, &::after,
-                background: white
+        span:first-of-type, &::before, &::after
+            background: white
     footer#document-footer
         background: white
         color: black
