@@ -2,8 +2,11 @@ class Footer {
     constructor (selector) {
         this.element = document.querySelector(selector);
         this.limit = window.innerHeight / 4;
-        this.bodyLimit = window.innerHeight * 1.5;
-        
+        this.bodyLimit = window.innerHeight * 1.25 ;
+        this.bodyHeight = document.querySelector("main").clientHeight;
+        this.style = window.getComputedStyle(document.body, null);
+        this.style.getPropertyValue("height");
+
         this.listen();
     }
 
@@ -20,9 +23,10 @@ class Footer {
     }
 
     onScroll () {
-        if (document.body.innerHeight < this.bodyLimit || window.scrollY > this.limit) {
+        if (this.bodyHeight < this.bodyLimit || window.scrollY > this.limit) {
             this.element.classList.add('is-visible');
-        } else if (document.body.innerHeight > this.bodyLimit) {
+        } 
+        else if (this.bodyHeight > this.bodyLimit || window.scrollY < this.limit) {
             this.element.classList.remove('is-visible');
         }
     }
