@@ -437,11 +437,16 @@ footer#document-footer
         nav li span
                 color: transparentize(black, .45)
     .post-meta time,
-    .block-testimonials .signature + .meta
-        color: $color-text-alt-dark
+    .block-testimonials .signature + .meta,
+    .post-sidebar .post-infos li > span,
+    .post-sidebar .toc-title
+        @include in-page-with-or-without-sidebar
+            color: $color-text-alt-dark
     .avatar
         background-color: black
-    ol.persons--list > li:hover
+    ol.persons--list > li:hover,
+    .post-sidebar .post-infos li a,
+    .post-sidebar .toc-content a
         color: white
     .has-menu-opened
         main
