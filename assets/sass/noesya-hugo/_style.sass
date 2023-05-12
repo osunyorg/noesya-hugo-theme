@@ -472,3 +472,24 @@ footer#document-footer
                     color: transparentize(white, .35)
                 li a:hover
                     color: white
+
+
+// Dark/light mode for partners and organizations blocks
+@media (prefers-color-scheme: light)
+    .organizations .organization .media,
+    .organizations__page .document-content .logo
+        picture
+            &:first-child
+                display: block
+            &:last-child
+                display: none
+@media (prefers-color-scheme: dark)
+    .organizations .organization .media,
+    .organizations__page .document-content .logo
+        background: $color-text-alt
+        picture
+            background: $color-text-alt
+            &:first-child
+                display: none
+            &:last-child
+                display: block
