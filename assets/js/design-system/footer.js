@@ -2,6 +2,7 @@ class Footer {
     constructor (selector) {
         this.element = document.querySelector(selector);
         this.limit = window.innerHeight / 4;
+        this.bodyLimit = document.body.innerHeight * 1.5;
         
         this.listen();
     }
@@ -19,9 +20,9 @@ class Footer {
     }
 
     onScroll () {
-        if (window.scrollY > this.limit) {
+        if (document.body.innerHeight < this.bodyLimit || window.scrollY > this.limit) {
             this.element.classList.add('is-visible');
-        } else {
+        } else if (document.body.innerHeight > this.bodyLimit) {
             this.element.classList.remove('is-visible');
         }
     }
