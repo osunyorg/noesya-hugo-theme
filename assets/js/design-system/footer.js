@@ -2,7 +2,7 @@ class Footer {
     constructor (selector) {
         this.element = document.querySelector(selector);
         this.limit = window.innerHeight / 4;
-        this.bodyLimit = document.body.innerHeight * 1.5;
+        this.bodyLimit = window.innerHeight * 1.5;
         
         this.listen();
     }
