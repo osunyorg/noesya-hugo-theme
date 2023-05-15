@@ -439,14 +439,17 @@ footer#document-footer
     .post-meta time,
     .block-testimonials .signature + .meta,
     .post-sidebar .post-infos li > span,
-    .post-sidebar .toc-title
+    .post-sidebar .toc-title,
+    .toc-container .toc-title
         @include in-page-with-or-without-sidebar
             color: $color-text-alt-dark
     .avatar
         background-color: black
     ol.persons--list > li:hover,
     .post-sidebar .post-infos li a,
-    .post-sidebar .toc-content a
+    .post-sidebar .toc-content a,
+    .toc ol li a,
+    .toc ol .active
         color: white
     .has-menu-opened
         main
