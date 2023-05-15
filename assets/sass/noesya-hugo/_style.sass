@@ -397,6 +397,10 @@ footer#document-footer
         .categories__term .posts--list .post a
             @include link(white)
             transition: color .3s ease
+.posts-navigation ul a
+    transition: color .2s ease
+    &:hover
+        color: $color-text-alt
 
 // Dark mode
 @media (prefers-color-scheme: dark)
@@ -440,7 +444,8 @@ footer#document-footer
     .block-testimonials .signature + .meta,
     .post-sidebar .post-infos li > span,
     .post-sidebar .toc-title,
-    .toc-container .toc-title
+    .toc-container .toc-title,
+    .posts-navigation ul a:hover
         @include in-page-with-or-without-sidebar
             color: $color-text-alt-dark
     .avatar
