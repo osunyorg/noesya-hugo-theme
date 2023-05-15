@@ -456,6 +456,12 @@ footer#document-footer
     .toc ol li a,
     .toc ol .active
         color: white
+    .block-files .files li
+        &::before
+            border-color: $color-text-alt-dark
+        &:hover::before
+            background-color: $color-text-alt-dark
+            color: black
     .has-menu-opened
         main
             background: white
