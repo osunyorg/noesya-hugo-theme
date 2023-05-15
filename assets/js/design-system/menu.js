@@ -15,14 +15,28 @@ class Menu {
         });
 
         this.button.addEventListener('click', () => {
-            this.toggle();
-            console.log(this.menuOpened)
+            this.toggleMenu();
+            console.log("juste avant : ", this.menuOpened)
         });
     }
-    toggle () {
+    toggleMenu () {
         this.menuOpened = !this.menuOpened;
+        
+        console.log(this.menuOpened)
+        
         this.links.forEach(link => {
             link.setAttribute('tabindex', this.menuOpened ? '0' : '-1');
+        });
+        if (this.menuOpened) {
+            this.enableEscape();
+        }
+    }
+    enableEscape () {
+        window.addEventListener('keydown', (event) => {
+            if (event.keyCode === 27 || event.key === 'Escape') {
+                console.log("juste avant echap : ", this.menuOpened)
+                this.toggleMenu();
+            }
         });
     }
 }
