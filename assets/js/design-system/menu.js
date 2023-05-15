@@ -20,12 +20,12 @@ class Menu {
         window.addEventListener('keydown', (event) => {
             if (event.keyCode === 27 || event.key === 'Escape') {
                 this.toggleMenu(false);
+                this.button.focus();
             }
         });
     }
 
     toggleMenu(open = !this.menuOpened) {
-        console.log(open)
         this.menuOpened = open;
         
         this.links.forEach(link => {
