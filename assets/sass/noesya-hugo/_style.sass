@@ -132,7 +132,8 @@ header#document-header
                     transition: color .3s ease
                     @include media-breakpoint-up(md)
                         @include h1
-                &:hover a
+                &:hover a,
+                &:focus-within a
                     color: transparentize($color-accent, .35)
             @include media-breakpoint-up(desktop)
                 padding-top: 253px
@@ -482,9 +483,11 @@ footer#document-footer
             .menu
                 li a
                     color: white
-                ul:hover a
+                ul:hover a,
+                ul:focus-within a
                     color: transparentize(white, .35)
-                li a:hover
+                li a:hover,
+                li a:focus
                     color: white
 
 
