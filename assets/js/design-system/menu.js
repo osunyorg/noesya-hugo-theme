@@ -9,34 +9,27 @@ class Menu {
         this.listen();
     }
 
-    listen () {
+    listen() {
         this.links.forEach(link => {
             link.setAttribute('tabindex', '-1');
         });
 
         this.button.addEventListener('click', () => {
             this.toggleMenu();
-            console.log("juste avant : ", this.menuOpened)
+        });
+        window.addEventListener('keydown', (event) => {
+            if (event.keyCode === 27 || event.key === 'Escape') {
+                this.toggleMenu(false);
+            }
         });
     }
-    toggleMenu () {
-        this.menuOpened = !this.menuOpened;
-        
-        console.log(this.menuOpened)
+
+    toggleMenu(open = !this.menuOpened) {
+        console.log(open)
+        this.menuOpened = open;
         
         this.links.forEach(link => {
             link.setAttribute('tabindex', this.menuOpened ? '0' : '-1');
-        });
-        if (this.menuOpened) {
-            this.enableEscape();
-        }
-    }
-    enableEscape () {
-        window.addEventListener('keydown', (event) => {
-            if (event.keyCode === 27 || event.key === 'Escape') {
-                console.log("juste avant echap : ", this.menuOpened)
-                this.toggleMenu();
-            }
         });
     }
 }
