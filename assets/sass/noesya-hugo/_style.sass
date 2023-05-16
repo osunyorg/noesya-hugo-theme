@@ -308,7 +308,6 @@ footer#document-footer
     @include media-breakpoint-down(md)
         .footer-logo > img
             width: col(4.4)
-                    
 // Blocks
 .block-testimonials
     .signature + .meta
@@ -446,7 +445,8 @@ footer#document-footer
     .post-sidebar .post-infos li > span,
     .post-sidebar .toc-title,
     .toc-container .toc-title,
-    .posts-navigation ul a:hover
+    .posts-navigation ul a:hover,
+    .toc ol .active
         @include in-page-with-or-without-sidebar
             color: $color-text-alt-dark
     .avatar
@@ -454,8 +454,7 @@ footer#document-footer
     ol.persons--list > li:hover,
     .post-sidebar .post-infos li a,
     .post-sidebar .toc-content a,
-    .toc ol li a,
-    .toc ol .active
+    .toc ol li a
         color: white
     .block-files .files li
         &::before
