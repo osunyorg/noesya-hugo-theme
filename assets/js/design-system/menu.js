@@ -22,8 +22,7 @@ class Menu {
                 this.toggleMenu(false);
                 this.button.focus();
             } else if (event.key === "Tab" && this.menuOpened) {
-                // this.innerFocus(event);
-                // event.preventDefault();
+                this.innerFocus(event);
             }
         });
     }
@@ -31,11 +30,8 @@ class Menu {
     toggleMenu(open = !this.menuOpened) {
         this.menuOpened = open;
         
-        this.links.forEach((link, index) => {
+        this.links.forEach((link) => {
             link.setAttribute('tabindex', this.menuOpened ? '0' : '-1');
-            if (index === 0) {
-                link.focus();
-            }
         });
     }
 
@@ -43,21 +39,23 @@ class Menu {
         const focusables = 'a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]';
         const elements = this.menu.querySelectorAll(focusables);
 
-        const focusableInDialog = Array.from(elements).filter(element => element.tabIndex >= 0);
+        let focusableInDialog = Array.from(elements).filter(element => element.tabIndex >= 0);
+        focusableInDialog.unshift(this.button);
+
         const firstFocusable = focusableInDialog[0];
         const lastFocusable = focusableInDialog.at(-1);
 
         if (!this.menuOpened) {
             return;
         }
-        console.log("step 1")
-        if (!this.menu.contains(event.target) && event.shiftKey) {
+
+        if (event.target === firstFocusable && event.shiftKey) {
             lastFocusable.focus();
-        }
-        else if (!this.menu.contains(event.target)) {
+            event.preventDefault();
+        } else if (event.target === lastFocusable && !event.shiftKey) {
             firstFocusable.focus();
+            event.preventDefault();
         }
-        // firstFocusable.focus();
     }
 }
 
