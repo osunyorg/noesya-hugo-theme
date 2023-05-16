@@ -10,6 +10,7 @@ class Menu {
     }
 
     listen() {
+        this.button.setAttribute("aria-haspopup", true);
         this.links.forEach(link => {
             link.setAttribute('tabindex', '-1');
         });
@@ -17,6 +18,7 @@ class Menu {
         this.button.addEventListener('click', () => {
             this.toggleMenu();
         });
+
         window.addEventListener('keydown', (event) => {
             if (event.keyCode === 27 && this.menuOpened || event.key === 'Escape' && this.menuOpened) {
                 this.toggleMenu(false);
