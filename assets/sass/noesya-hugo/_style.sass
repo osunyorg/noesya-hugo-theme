@@ -132,7 +132,8 @@ header#document-header
                     transition: color .3s ease
                     @include media-breakpoint-up(md)
                         @include h1
-                &:hover a
+                &:hover a,
+                &:focus-within a
                     color: transparentize($color-accent, .35)
             @include media-breakpoint-up(desktop)
                 padding-top: 253px
@@ -307,7 +308,6 @@ footer#document-footer
     @include media-breakpoint-down(md)
         .footer-logo > img
             width: col(4.4)
-                    
 // Blocks
 .block-testimonials
     .signature + .meta
@@ -397,6 +397,10 @@ footer#document-footer
         .categories__term .posts--list .post a
             @include link(white)
             transition: color .3s ease
+.posts-navigation ul a
+    transition: color .2s ease
+    &:hover
+        color: $color-text-alt
 
 // Dark mode
 @media (prefers-color-scheme: dark)
@@ -439,15 +443,29 @@ footer#document-footer
     .post-meta time,
     .block-testimonials .signature + .meta,
     .post-sidebar .post-infos li > span,
-    .post-sidebar .toc-title
+    .post-sidebar .toc-title,
+    .toc-container .toc-title,
+    .posts-navigation ul a:hover,
+    .toc ol .active
         @include in-page-with-or-without-sidebar
             color: $color-text-alt-dark
     .avatar
         background-color: black
     ol.persons--list > li:hover,
     .post-sidebar .post-infos li a,
-    .post-sidebar .toc-content a
+    .post-sidebar .toc-content a,
+    .toc ol li a
         color: white
+    .block-files .files li
+        &::before
+            border-color: $color-text-alt-dark
+        &:hover::before
+            background-color: $color-text-alt-dark
+            color: black
+    .block-chapter--alt_background .chapter
+        @include in-page-with-sidebar
+            background: $color-background-alt-dark
+            color: white
     .has-menu-opened
         main
             background: white
@@ -468,9 +486,11 @@ footer#document-footer
             .menu
                 li a
                     color: white
-                ul:hover a
+                ul:hover a,
+                ul:focus-within a
                     color: transparentize(white, .35)
-                li a:hover
+                li a:hover,
+                li a:focus
                     color: white
 
 
