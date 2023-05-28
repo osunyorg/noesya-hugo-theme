@@ -1,0 +1,199 @@
+<div class="d-grid">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div>10</div>
+  <div>11</div>
+  <div>12</div>
+</div>
+
+<div class="d-spacing">
+  <div><span>0 (12px) </span></div>
+  <div><span>1 (24px) </span></div>
+  <div><span>2 (48px) </span></div>
+  <div><span>3 (64px) </span></div>
+  <div><span>4 (128px) </span></div>
+  <div><span>5 (256px) </span></div>
+</div>
+
+<div class="d-cross"></div>
+<style>
+  :root {
+    --d-grid-margin: 50px;
+    --d-grid-sm-margin: 44px;
+  }
+  .d-grid {
+    bottom: 0;
+    display: none;
+    grid-gap: var(--d-grid-margin);
+    grid-template-columns: repeat(12, 1fr);
+    opacity: 0.3;
+    padding: 0 var(--d-grid-margin);
+    pointer-events: none;
+    position: fixed;
+    margin: auto;
+    max-width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1440px;
+    z-index: 9999;
+    font-family: sans-serif;
+    font-size: 12px;
+  }
+  .d-grid.is-visible {
+    display: grid;
+  }
+  .d-grid > div {
+    background: fuchsia;
+    /*
+    border-left: 1px solid yellow;
+    border-right: 1px solid yellow; 
+    */
+    text-align: center;
+  }
+  .d-spacing {
+    display: none;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    mix-blend-mode: difference;
+    opacity: 0.3;
+    font-family: sans-serif;
+    font-size: 12px;
+  }
+  .d-spacing.is-visible {
+    display: block;
+  }
+  .d-spacing > div {
+    position: relative;
+  }
+  .d-spacing > div span {
+    position: absolute;
+  }
+  .d-spacing > div {
+    width: 100%;
+    border-bottom: 1px solid white;
+    display: block;
+    color: white;
+    text-indent: 5px;
+  }
+  .d-spacing > div:nth-child(1){
+    border-top: 1px solid white;
+    height: var(--spacing0);
+  }
+  .d-spacing > div:nth-child(1) span{
+    margin-top: -10px;
+  }
+  .d-spacing > div:nth-child(2){
+    height: var(--spacing1);
+  }
+  .d-spacing > div:nth-child(3){
+    height: var(--spacing2);
+  }
+  .d-spacing > div:nth-child(4){
+    height: var(--spacing3);
+  }
+  .d-spacing > div:nth-child(5){
+    height: var(--spacing4);
+  }
+  .d-spacing > div:nth-child(6){
+    height: var(--spacing5);
+  }
+  .d-cross {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background: gray;
+    display: none;
+    pointer-events: none;
+    z-index: 100;
+  }
+  .d-cross.is-visible {
+    display: block;
+  }
+  .d-cross:after, .d-cross:before{
+    content: '';
+    position: absolute;
+    background: gray;
+    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 1px;
+  }
+  .d-cross:after{
+    height: 200vh;
+  }
+  .d-cross:before{
+    width: 200vw;
+  }
+
+  @media (max-width: 768px) {
+    .d-grid > div {
+      display: none;
+    }
+    .d-grid {
+      border-left: calc(var(--d-grid-sm-margin) / 2) solid fuchsia;
+      border-right: calc(var(--d-grid-sm-margin) / 2) solid fuchsia;
+    }
+  }
+
+</style>
+
+<script>
+  window.addEventListener('keydown', e => {
+    if (e.ctrlKey && e.key === 'g') {
+      document.querySelector('.d-grid').classList.toggle('is-visible');
+      document.querySelector('.d-spacing').classList.toggle('is-visible');
+      document.querySelector('.d-cross').classList.toggle('is-visible');
+    }
+    if (e.ctrlKey && e.key === 'w') {
+      document.body.classList.toggle('full-width');
+    }
+  });
+
+  window.addEventListener('pointermove', e => {
+    document.querySelector('.d-cross').style.left = e.clientX + "px";
+    document.querySelector('.d-cross').style.top = e.clientY + "px";
+  });
+
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', e => {
+      if (e.altKey) {
+        e.preventDefault()
+        e.stopImmediatePropagation()
+        responsiveImageDebugOutput(img)
+      }
+    })
+  })
+
+  function responsiveImageDebugOutput(img) {
+    if (!img) {
+      throw new TypeError("Expected an image node. Got none.");
+    }
+    const listener = function () {
+      const pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
+      const dimensionWidth = img.naturalWidth * pixelRatio;
+      const dimensionHeight = img.naturalHeight * pixelRatio;
+      console.log(`
+        -------------------------
+        Rendered size: ${img.width}x${img.height}
+        Intrinsic size: ${dimensionWidth}x${dimensionHeight}
+        Device Pixel Ratio: ${window.devicePixelRatio}
+        -------------------------
+      `);
+    };
+    if (img.complete) listener();
+    //img.addEventListener('load', listener);
+  }
+</script>
