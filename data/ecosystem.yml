@@ -16,9 +16,3 @@ websites:
   - domain: histoires
     title: histoires
     pending: true
-  - domain: stack
-    title: stack
-    pending: true
-  - domain: methode
-    title: méthode
-    pending: true
