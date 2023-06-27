@@ -166,6 +166,13 @@ main
     background: $color-background
     position: relative
     z-index: 9
+
+    // This pseudo-element handles last block margin-bottom
+    &::after
+        content: ''
+        display: block
+        height: 1px
+
 @include media-breakpoint-up(desktop)
     body
         padding-bottom: 100vh
