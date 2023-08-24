@@ -12,6 +12,7 @@
 
 {{- with .block.data -}}
   {{- $layout := .layout -}}
+  {{- $with_link := .with_link -}}
 
   {{- if $layout -}}
     {{- $layout_class = printf "block-partners--%s" $layout -}}
@@ -20,11 +21,9 @@
   <section class="block block-partners{{ if $title }} block-with-title{{ end }} {{ $layout_class }}" id="block-{{ $position }}">
     <div class="container">
       <div class="block-content">
-        {{ if (or $title .description) -}}
+        {{ if or $title .description -}}
           <div class="top">
-            {{- if not $title -}}
-              {{ partial "blocks/default_title.html" $template }}
-            {{ else }}
+            {{- if $title -}}
               <h2>{{ partial "PrepareHTML" $title }}</h2>
             {{ end -}}
             {{- if .description }}
@@ -35,10 +34,11 @@
           </div>
         {{- end }}
 
-        {{- partial (printf "blocks/templates/partners/%s.html" $layout) (dict 
+        {{- partial (printf "blocks/templates/partners/%s.html" $layout) (dict
             "partners" .partners
             "logo_index" $logo_index
             "logo_dark" $logo_dark
+            "with_link" $with_link
           ) }}
       </div>
     </div>
@@ -52,7 +52,7 @@
     {{ if .title }}
       {{ $title = partial "PrepareHTML" .title -}}
       <h3>
-        {{- if .url }}
+        {{- if and .url .with_link }}
           <a href="{{ .url }}" {{ if .external }} target="_blank" rel="noopener" {{ end }} title="{{ safeHTML (i18n "commons.link.blank_aria" (dict "Title" $title)) }}">
         {{ end -}}
           {{- $title -}}
