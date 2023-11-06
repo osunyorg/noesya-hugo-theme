@@ -212,10 +212,12 @@ footer#document-footer
     .footer-logo
         align-items: flex-end
         display: flex
-        a.aorg
-            margin-left: 40px
-        a::after
-            display: none
+        a
+            width: fit-content
+            &::after
+                display: none
+            + a
+                margin-left: $grid-gutter
     @include media-breakpoint-up(xxl)
         padding-top: calc(#{$grid-gutter} * 2)
         .footer-logo
@@ -227,9 +229,6 @@ footer#document-footer
                     margin-top: $spacing0
     @include media-breakpoint-up(xl)
         justify-content: space-between
-        .footer-logo
-            a
-                width: $grid-gutter
         nav li + li 
             margin-top: 0
         @media screen and (max-height: 800px)
@@ -276,12 +275,12 @@ footer#document-footer
             position: absolute
             width: col(5)
             > img 
-                margin-left: calc(#{$grid-gutter} * 5)
-                width: col(1.8, 5)
+                margin-left: calc(#{col(3)} + #{$grid-gutter} + #{$spacing0})
+                width: col(1.5, 5)
                 @media screen and (max-height: 800px)
                     width: col(1.5, 5)
-            a
-                width: col(.93, 5)
+                @media screen and (max-height: 600px)
+                    width: col(1.2, 5)
         .container:first-of-type
             justify-content: unset
             gap: $grid-gutter

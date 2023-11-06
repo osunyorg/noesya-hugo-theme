@@ -23,10 +23,13 @@ class Footer {
     }
 
     onScroll () {
+        console.log(this.limit, window.scrollY)
         if (this.bodyHeight < this.bodyLimit || window.scrollY > this.limit) {
+            console.log('on montre')
             this.element.classList.add('is-visible');
         } 
-        else if (this.bodyHeight > this.bodyLimit || window.scrollY < this.limit) {
+        if (window.scrollY <= 0) {
+            console.log('on cache')
             this.element.classList.remove('is-visible');
         }
     }
