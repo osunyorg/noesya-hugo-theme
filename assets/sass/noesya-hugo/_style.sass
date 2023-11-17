@@ -386,6 +386,10 @@ footer#document-footer
     header#document-header nav .logo 
         color: white
         transition: color .3s ease
+    .full-width
+        .block-posts--list 
+            article
+                border-bottom: 1px solid transparentize(white, .8)
     @include media-breakpoint-up(desktop)
         main
             background: black
@@ -402,7 +406,8 @@ footer#document-footer
             transition: color .3s ease
         a,
         .link,
-        .categories__term .posts--list .post a
+        .categories__term .posts--list .post a,
+        .post-categories a
             @include link(white)
             transition: color .3s ease
 .posts-navigation ul a
@@ -412,6 +417,7 @@ footer#document-footer
 th
     font-weight: normal
     @include meta
+
 // Dark mode
 @media (prefers-color-scheme: dark)
     ::selection
@@ -427,7 +433,8 @@ th
     .block-testimonials blockquote p,
     .hero
         color: white
-    a, .link
+    a, 
+    .link
         @include link(white)
     header#document-header nav 
         .logo
@@ -478,6 +485,17 @@ th
         @include in-page-with-sidebar
             background: $color-background-alt-dark
             color: white
+    .block-posts--list .post 
+        .post-categories a
+            @include link(white)
+            .has-menu-opened &
+                @include link($color-accent)
+    .block-posts--list 
+        @include in-page-without-sidebar
+            article
+                border-bottom: 1px solid transparentize(white, .8)
+                .has-menu-opened &
+                    border-bottom: 1px solid transparentize($color-accent, .8)
     .has-menu-opened
         main
             background: white
