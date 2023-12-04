@@ -12,8 +12,8 @@
     100%
         right: 0
         width: 20px
-    
-// System
+
+// Layout
 body:not(.is-loaded) *
     transition-duration: 0s !important
 ::selection
@@ -25,10 +25,23 @@ body:not(.is-loaded) *
     color: white
     text-shadow: none 
 main
+    background: $color-background
     min-height: 100vh
+    position: relative
     transition: background .3s ease, color .3s ease
-.hero
-    transition: color .3s ease
+    z-index: 9
+
+    // This pseudo-element handles last block margin-bottom
+    &::after
+        content: ''
+        display: block
+        height: 1px
+
+@include media-breakpoint-up(desktop)
+    body
+        padding-bottom: 100vh
+
+// Header
 header#document-header 
     pointer-events: none
     .logo
@@ -162,25 +175,20 @@ header#document-header
                 transform: translateY(0)
                 .logo
                     opacity: 0
-main
-    background: $color-background
-    position: relative
-    z-index: 9
 
-    // This pseudo-element handles last block margin-bottom
-    &::after
-        content: ''
-        display: block
-        height: 1px
+// Hero
+.hero
+    transition: color .3s ease
 
+// Footer
 @include media-breakpoint-up(desktop)
-    body
-        padding-bottom: 100vh
     footer#document-footer
         position: fixed
         bottom: 0
         height: 100vh
         width: 100%
+
+
 footer#document-footer
     font-size: $body-size-desktop
     opacity: 0
@@ -316,47 +324,6 @@ footer#document-footer
     @include media-breakpoint-down(md)
         .footer-logo > img
             width: col(4.4)
-// Blocks
-.block-testimonials
-    .signature + .meta
-        font-family: $body-font-family
-    figcaption
-        justify-content: center
-    @include in-page-with-or-without-sidebar
-        figure.with-picture
-            figcaption 
-                display: flex
-                margin: $spacing2 auto 0
-                .avatar
-                    position: relative
-                    left: unset
-                    margin-left: unset
-                    top: unset
-                @include media-breakpoint-up(desktop)
-                    width: col(5, 8)
-                    .avatar
-                        width: 105px
-    @include in-page-without-sidebar
-        figure.with-picture
-            width: col(8)
-            padding: 0
-            margin-left: auto
-            margin-right: auto
-            @include media-breakpoint-down(md)
-                width: 100%
-    @include media-breakpoint-up(desktop)
-        blockquote p
-            text-align: center
-.block-posts--list article
-    @include media-breakpoint-up(desktop)
-        @include in-page-with-or-without-sidebar
-            padding-bottom: $spacing2
-            + article
-                margin-top: 0
-                padding-top: $spacing2
-                .post-meta
-                    top: $spacing2
-
 // Menu opened
 .has-menu-opened 
     header#document-header 
@@ -410,13 +377,16 @@ footer#document-footer
         .post-categories a
             @include link(white)
             transition: color .3s ease
+
+th
+    font-weight: normal
+    @include meta
+
+// Navigation
 .posts-navigation ul a
     transition: color .2s ease
     &:hover
         color: $color-text-alt
-th
-    font-weight: normal
-    @include meta
 
 // Dark mode
 @media (prefers-color-scheme: dark)
@@ -459,43 +429,6 @@ th
                 color: transparentize(black, 0)
         nav li span
                 color: transparentize(black, .6)
-    .post-meta time,
-    .block-testimonials .signature + .meta,
-    .post-sidebar .post-infos li > span,
-    .post-sidebar .toc-title,
-    .toc-container .toc-title,
-    .posts-navigation ul a:hover,
-    .toc ol .active
-        @include in-page-with-or-without-sidebar
-            color: $color-text-alt-dark
-    .avatar
-        background-color: black
-    ol.persons--list > li:hover,
-    .post-sidebar .post-infos li a,
-    .post-sidebar .toc-content a,
-    .toc ol li a
-        color: white
-    .block-files .files li
-        &::before
-            border-color: $color-text-alt-dark
-        &:hover::before
-            background-color: $color-text-alt-dark
-            color: black
-    .block-chapter--alt_background .chapter
-        @include in-page-with-sidebar
-            background: $color-background-alt-dark
-            color: white
-    .block-posts--list .post 
-        .post-categories a
-            @include link(white)
-            .has-menu-opened &
-                @include link($color-accent)
-    .block-posts--list 
-        @include in-page-without-sidebar
-            article
-                border-bottom: 1px solid transparentize(white, .8)
-                .has-menu-opened &
-                    border-bottom: 1px solid transparentize($color-accent, .8)
     .has-menu-opened
         main
             background: white
@@ -523,23 +456,3 @@ th
                 li a:focus
                     color: white
 
-
-// Dark/light mode for partners and organizations blocks
-@media (prefers-color-scheme: light)
-    .organizations .organization .media,
-    .organizations__page .document-content .logo
-        picture
-            &:last-child
-                display: none
-            &:first-child
-                display: block
-@media (prefers-color-scheme: dark)
-    .organizations .organization .media,
-    .organizations__page .document-content .logo
-        background: $color-text-alt
-        picture
-            background: $color-text-alt
-            &:first-child
-                display: none
-            &:last-child
-                display: block
