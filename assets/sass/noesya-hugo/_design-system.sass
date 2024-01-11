@@ -407,6 +407,9 @@ th
     a, 
     .link
         @include link(white)
+        &:hover
+            @include link(white)
+            
     header#document-header nav 
         .logo
             color: white
@@ -457,3 +460,6 @@ th
                 li a:focus
                     color: white
 
+    .posts-navigation ul a, .siblings-navigation ul a
+        &:hover
+            @include link(white)
