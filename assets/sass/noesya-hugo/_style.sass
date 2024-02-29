@@ -424,8 +424,12 @@ footer#document-footer
         .link,
         .categories__term .posts--list .post a,
         .post-categories a
-            @include link(white)
+            @include link(var(--color-background))
             transition: color .3s ease
+        .posts-navigation,
+        .siblings-navigation
+            border-color: var(--color-background)
+            transition: border-color .3s ease
 .posts-navigation ul a
     transition: color .2s ease
     &:hover
