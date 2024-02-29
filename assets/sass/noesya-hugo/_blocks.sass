@@ -1,3 +1,4 @@
+// Blocks
 .block-testimonials
     .signature + .meta
         font-family: $body-font-family
@@ -7,19 +8,19 @@
         figure.with-picture
             figcaption 
                 display: flex
-                margin: $spacing2 auto 0
+                margin: $spacing-4 auto 0
                 .avatar
                     position: relative
                     left: unset
                     margin-left: unset
                     top: unset
                 @include media-breakpoint-up(desktop)
-                    width: col(5, 8)
+                    width: columns(5) // TODO CHECK
                     .avatar
                         width: 105px
     @include in-page-without-sidebar
         figure.with-picture
-            width: col(8)
+            width: columns(8)
             padding: 0
             margin-left: auto
             margin-right: auto
@@ -31,49 +32,9 @@
 .block-posts--list article
     @include media-breakpoint-up(desktop)
         @include in-page-with-or-without-sidebar
-            padding-bottom: $spacing2
+            padding-bottom: $spacing-4
             + article
                 margin-top: 0
-                padding-top: $spacing2
+                padding-top: $spacing-4
                 .post-meta
-                    top: $spacing2
-
-// Dark mode
-@media (prefers-color-scheme: dark)
-    .post-meta time,
-    .block-testimonials .signature + .meta,
-    .post-sidebar .post-infos li > span,
-    .post-sidebar .toc-title,
-    .toc-container .toc-title,
-    .posts-navigation ul a:hover,
-    .toc ol .active
-        @include in-page-with-or-without-sidebar
-            color: $color-text-alt-dark
-    .avatar
-        background-color: black
-    ol.persons--list > li:hover,
-    .post-sidebar .post-infos li a,
-    .post-sidebar .toc-content a,
-    .toc ol li a
-        color: white
-    .block-files .files li
-        &::before
-            border-color: $color-text-alt-dark
-        &:hover::before
-            background-color: $color-text-alt-dark
-            color: black
-    .block-chapter--alt_background .chapter
-        @include in-page-with-sidebar
-            background: $color-background-alt-dark
-            color: white
-    .block-posts--list .post 
-        .post-categories a
-            @include link(white)
-            .has-menu-opened &
-                @include link($color-accent)
-    .block-posts--list 
-        @include in-page-without-sidebar
-            article
-                border-bottom: 1px solid transparentize(white, .8)
-                .has-menu-opened &
-                    border-bottom: 1px solid transparentize($color-accent, .8)
+                    top: $spacing-4
