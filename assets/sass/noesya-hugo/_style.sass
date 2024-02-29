@@ -69,7 +69,7 @@ header#document-header
             width: 50px
             z-index: 9
             span:first-of-type, &::after, &::before
-                background: $color-accent
+                background: var(--color-accent)
             span, span:first-of-type, &::after, &::before
                 content: ''
                 font-size: 0
@@ -87,7 +87,7 @@ header#document-header
                 transform: translateY(-9px)
             span:not(:first-of-type)
                 &::after, &::before
-                    background: $color-accent
+                    background: var(--color-accent)
                     content: ''
                     height: 1px
                     left: 0
@@ -108,7 +108,7 @@ header#document-header
                     animation: 0.3s 0s menu-hovered ease-in-out
         .menu
             backface-visibility: hidden
-            background: white
+            background: var(--color-background)
             bottom: 0
             height: 100vh
             max-height: unset
@@ -130,12 +130,16 @@ header#document-header
                     @include h2
                     padding: 0
                     text-decoration: none
-                    transition: color .3s ease
+                    transition: opacity .3s ease
                     @include media-breakpoint-up(md)
                         @include h1
                 &:hover a,
                 &:focus-within a
-                    color: transparentize($color-accent, .35)
+                    color: var(--color-accent)
+                    opacity: .35
+                a:hover
+                    opacity: 1
+                    
             @include media-breakpoint-up(desktop)
                 padding-top: 253px
                 width: calc(50vw + min(1040px, calc(100vw - 390px)) / 2)
@@ -164,7 +168,7 @@ header#document-header
                 .logo
                     opacity: 0
 main
-    background: $color-background
+    background: var(--color-background)
     position: relative
     z-index: 9
 
@@ -182,7 +186,10 @@ main
         bottom: 0
         height: 100vh
         width: 100%
+
 footer#document-footer
+    background: var(--color-text)
+    color: var(--color-background)
     font-size: $body-size-desktop
     opacity: 0
     padding-bottom: var(--grid-gutter)
@@ -192,11 +199,13 @@ footer#document-footer
     .container
         position: relative
     ul li a
-        color: transparentize(white, .2)
+        color: var(--color-background)
+        opacity: 0.65
         text-decoration: none
         transition: color .3s ease
         &:hover
-            color: transparentize(white, 0)
+            color: var(--color-background)
+            opacity: 1
             text-decoration: none
     .footer-social li,
     .footer-legals li
@@ -209,7 +218,8 @@ footer#document-footer
         line-height: pxToRem(36)
         text-decoration: none
     nav li span
-            color: transparentize(white, .8)
+        color: var(--color-background)
+        opacity: 0.4
     .footer-logo
         align-items: flex-end
         display: flex
@@ -371,12 +381,12 @@ footer#document-footer
         nav .header-button[aria-expanded="true"]
             span:not(:first-of-type)
                 &::after
-                    background: $color-accent
+                    background: var(--color-accent)
                     content: ""
                     transform: rotate(-45deg) scaleX(1)
                     transition-delay: 0.15s
                 &::before
-                    background: $color-accent
+                    background: var(--color-accent)
                     content: ""
                     transform: rotate(45deg) scaleX(1)
                     transition-delay: 0.25s
@@ -392,7 +402,7 @@ footer#document-footer
         .menu
             transform: translateX(0)
     header#document-header nav .logo 
-        color: white
+        color: var(--color-accent)
         transition: color .3s ease
     .full-width
         .block-posts--list 
@@ -427,127 +437,12 @@ th
     @include meta
 
 // Dark mode
-// @media (prefers-color-scheme: dark)
-//     ::selection
-//         background: transparentize(white, .3)
-//         color: $color-accent
-//     ::-moz-selection
-//         background: transparentize(white, .3)
-//         color: $color-accent
-//     main
-//         background: black
-//         color: white
-//     body,
-//     .block-testimonials blockquote p,
-//     .hero
-//         color: white
-//     a, 
-//     .link
-//         @include link(white)
-//     header#document-header nav 
-//         .logo
-//             color: white
-//             img
-//                 filter: invert(1)
-//         .menu
-//             background: black
-//         button[type="button"][aria-controls="navigation"]
-//             span:first-of-type, 
-//             &::before, 
-//             &::after
-//                 background: white
-//     footer#document-footer
-//         background: white
-//         color: black
-//         .footer-logo a img
-//             filter: invert(1)
-//         ul li a
-//             color: transparentize(black, .35)
-//             &:hover
-//                 color: transparentize(black, 0)
-//         nav li span
-//                 color: transparentize(black, .6)
-//     .post-meta time,
-//     .block-testimonials .signature + .meta,
-//     .post-sidebar .post-infos li > span,
-//     .post-sidebar .toc-title,
-//     .toc-container .toc-title,
-//     .posts-navigation ul a:hover,
-//     .toc ol .active
-//         @include in-page-with-or-without-sidebar
-//             color: $color-text-alt-dark
-//     .avatar
-//         background-color: black
-//     ol.persons--list > li:hover,
-//     .post-sidebar .post-infos li a,
-//     .post-sidebar .toc-content a,
-//     .toc ol li a
-//         color: white
-//     .block-files .files li
-//         &::before
-//             border-color: $color-text-alt-dark
-//         &:hover::before
-//             background-color: $color-text-alt-dark
-//             color: black
-//     .block-chapter--alt_background .chapter
-//         @include in-page-with-sidebar
-//             background: $color-background-alt-dark
-//             color: white
-//     .block-posts--list .post 
-//         .post-categories a
-//             @include link(white)
-//             .has-menu-opened &
-//                 @include link($color-accent)
-//     .block-posts--list 
-//         @include in-page-without-sidebar
-//             article
-//                 border-bottom: 1px solid transparentize(white, .8)
-//                 .has-menu-opened &
-//                     border-bottom: 1px solid transparentize($color-accent, .8)
-//     .has-menu-opened
-//         main
-//             background: white
-//             color: $color-accent
-//             a
-//                 @include link($color-accent)
-//         .hero
-//             color: $color-accent
-//         header#document-header nav
-//             .logo 
-//                 color: white
-//                 img
-//                     filter: invert(0) 
-//             button
-//                 span:not(first-of-type)::before, 
-//                 span:not(first-of-type)::after
-//                     background: white !important
-//             .menu
-//                 li a
-//                     color: white
-//                 ul:hover a,
-//                 ul:focus-within a
-//                     color: transparentize(white, .35)
-//                 li a:hover,
-//                 li a:focus
-//                     color: white
-
-
-// // Dark/light mode for partners and organizations blocks
-// @media (prefers-color-scheme: light)
-//     .organizations .organization .media,
-//     .organizations__page .document-content .logo
-//         picture
-//             &:last-child
-//                 display: none
-//             &:first-child
-//                 display: block
-// @media (prefers-color-scheme: dark)
-//     .organizations .organization .media,
-//     .organizations__page .document-content .logo
-//         background: $color-text-alt
-//         picture
-//             background: $color-text-alt
-//             &:first-child
-//                 display: none
-//             &:last-child
-//                 display: block
+@media (prefers-color-scheme: dark)
+    header#document-header nav 
+        .logo
+            color: white
+            img
+                filter: invert(1)
+    footer#document-footer
+        .footer-logo a img
+            filter: invert(1)
