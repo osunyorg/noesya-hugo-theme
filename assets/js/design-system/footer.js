@@ -23,7 +23,6 @@ class Footer {
     }
 
     onScroll () {
-        console.log(this.limit, window.scrollY)
         if (this.bodyHeight < this.bodyLimit || window.scrollY > this.limit) {
             this.element.classList.add('is-visible');
         } 

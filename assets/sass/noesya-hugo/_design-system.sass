@@ -12,8 +12,8 @@
     100%
         right: 0
         width: 20px
-    
-// System
+
+// Layout
 body:not(.is-loaded) *
     transition-duration: 0s !important
 ::selection
@@ -27,8 +27,24 @@ body:not(.is-loaded) *
 main
     min-height: 100vh
     transition: background .3s ease, color .3s ease
+    background: var(--color-background)
+    position: relative
+    z-index: 9
+
+    // This pseudo-element handles last block margin-bottom
+    &::after
+        content: ''
+        display: block
+        height: 1px
+
+@include media-breakpoint-up(desktop)
+    body
+        padding-bottom: 100vh
+
 .hero
     transition: color .3s ease
+    
+// Header
 header#document-header 
     pointer-events: none
     .logo
@@ -169,16 +185,16 @@ header#document-header
                 transform: translateY(0)
                 .logo
                     opacity: 0
+                    
 main
     background: var(--color-background)
     position: relative
     z-index: 9
 
-    // This pseudo-element handles last block margin-bottom
-    &::after
-        content: ''
-        display: block
-        height: 1px
+// Hero
+.hero
+    transition: color .3s ease
+
 
 @include media-breakpoint-up(desktop)
     body
@@ -189,6 +205,7 @@ main
         height: 100vh
         width: 100%
 
+// Footer
 footer#document-footer
     background: var(--color-text)
     color: var(--color-background)
@@ -333,46 +350,6 @@ footer#document-footer
     @include media-breakpoint-down(sm)
         .footer-logo > img
             width: columns(5)
-// Blocks
-.block-testimonials
-    .signature + .meta
-        font-family: $body-font-family
-    figcaption
-        justify-content: center
-    @include in-page-with-or-without-sidebar
-        figure.with-picture
-            figcaption 
-                display: flex
-                margin: $spacing-4 auto 0
-                .avatar
-                    position: relative
-                    left: unset
-                    margin-left: unset
-                    top: unset
-                @include media-breakpoint-up(desktop)
-                    width: columns(5) // TODO CHECK
-                    .avatar
-                        width: 105px
-    @include in-page-without-sidebar
-        figure.with-picture
-            width: columns(8)
-            padding: 0
-            margin-left: auto
-            margin-right: auto
-            @include media-breakpoint-down(md)
-                width: 100%
-    @include media-breakpoint-up(desktop)
-        blockquote p
-            text-align: center
-.block-posts--list article
-    @include media-breakpoint-up(desktop)
-        @include in-page-with-or-without-sidebar
-            padding-bottom: $spacing-4
-            + article
-                margin-top: 0
-                padding-top: $spacing-4
-                .post-meta
-                    top: $spacing-4
 
 // Menu opened
 .has-menu-opened 

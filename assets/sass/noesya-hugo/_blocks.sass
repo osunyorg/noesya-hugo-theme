@@ -1,0 +1,40 @@
+// Blocks
+.block-testimonials
+    .signature + .meta
+        font-family: $body-font-family
+    figcaption
+        justify-content: center
+    @include in-page-with-or-without-sidebar
+        figure.with-picture
+            figcaption 
+                display: flex
+                margin: $spacing-4 auto 0
+                .avatar
+                    position: relative
+                    left: unset
+                    margin-left: unset
+                    top: unset
+                @include media-breakpoint-up(desktop)
+                    width: columns(5) // TODO CHECK
+                    .avatar
+                        width: 105px
+    @include in-page-without-sidebar
+        figure.with-picture
+            width: columns(8)
+            padding: 0
+            margin-left: auto
+            margin-right: auto
+            @include media-breakpoint-down(md)
+                width: 100%
+    @include media-breakpoint-up(desktop)
+        blockquote p
+            text-align: center
+.block-posts--list article
+    @include media-breakpoint-up(desktop)
+        @include in-page-with-or-without-sidebar
+            padding-bottom: $spacing-4
+            + article
+                margin-top: 0
+                padding-top: $spacing-4
+                .post-meta
+                    top: $spacing-4
