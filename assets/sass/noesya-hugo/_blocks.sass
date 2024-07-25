@@ -3,7 +3,6 @@
     .signature + .meta
         font-family: $body-font-family
     figcaption
-        justify-content: center
     @include in-page-with-or-without-sidebar
         figure.with-picture
             figcaption 
@@ -27,8 +26,11 @@
             @include media-breakpoint-down(md)
                 width: 100%
     @include media-breakpoint-up(desktop)
-        blockquote p
-            text-align: center
+        blockquote,
+        figcaption
+            p
+                text-align: center
+                width: 100%
 .block-posts--list article
     @include media-breakpoint-up(desktop)
         @include in-page-with-or-without-sidebar
