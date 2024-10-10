@@ -1,7 +1,7 @@
 // Dark/light mode for partners and organizations blocks
 @media (prefers-color-scheme: light)
     .organizations .organization .media,
-    .organizations__page .document-content .logo
+    .organizations__page .document-content .organization-logo
         picture
             &:last-child
                 display: none
@@ -9,11 +9,17 @@
                 display: block
 @media (prefers-color-scheme: dark)
     .organizations .organization .media,
-    .organizations__page .document-content .logo
-        background: $color-text-alt
+    .organizations__page .document-content .organization-logo
         picture
-            background: $color-text-alt
             &:first-child
                 display: none
             &:last-child
                 display: block
+    .organizations .organization .media
+        background: $color-text-alt
+
+.organizations__page 
+    .document-content 
+        .organization-logo
+            picture
+                padding: 0
