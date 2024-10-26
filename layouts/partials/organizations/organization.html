@@ -1,32 +1,45 @@
+{{ $options := site.Params.organizations.index.options }}
+
 <article class="organization">
-  <div>
+  <div class="organization-content">
     {{ $title := partial "PrepareHTML" .Title }}
-    <h2>
-      <a href="{{ .Permalink }}" title="{{ safeHTML (i18n "commons.more_aria" (dict "Title" $title)) }}">
-        {{ $title }}
-      </a>
+    <h2 class="organization-title">
+      {{ if $options.link }}
+        <a href="{{ .Permalink }}" title="{{ safeHTML (i18n "commons.more_aria" (dict "Title" $title)) }}">
+      {{ end }}
+      {{ $title }}
+      {{ if $options.link }}
+        </a>
+      {{ end }}
     </h2>
+    {{ if and $options.summary  .Params.summary }}
+      <div class="organization-summary">
+        {{ safeHTML .Params.summary }}
+      </div>
+    {{ end }}
   </div>
-  <div class="media">
-    {{- if .Params.logo -}}
-    {{ $logo_index := "logo" }}
-    {{ $logo_dark := "logo_on_dark_background" }}
-    <figure class="logo">
-      {{- partial "commons/image.html"
-              (dict
-                "image"    (index .Params $logo_index)
-                "alt"      .Title
-                "sizes"    site.Params.image_sizes.sections.organizations.logo
-              ) -}}
-      {{- if (index .Params $logo_dark) -}}
+  {{ if $options.logo }}
+    <div class="media">
+      {{- if .Params.logo -}}
+      {{ $logo_index := "logo" }}
+      {{ $logo_dark := "logo_on_dark_background" }}
+      <figure class="logo">
         {{- partial "commons/image.html"
-        (dict
-          "image"    (index .Params $logo_dark)
-          "alt"      .Title
-          "sizes"    site.Params.image_sizes.sections.organizations.logo
-        ) -}}
+                (dict
+                  "image"    (index .Params $logo_index)
+                  "alt"      .Title
+                  "sizes"    site.Params.image_sizes.sections.organizations.logo
+                ) -}}
+        {{- if (index .Params $logo_dark) -}}
+          {{- partial "commons/image.html"
+          (dict
+            "image"    (index .Params $logo_dark)
+            "alt"      .Title
+            "sizes"    site.Params.image_sizes.sections.organizations.logo
+          ) -}}
+        {{- end -}}
+      </figure>
       {{- end -}}
-    </figure>
-    {{- end -}}
-  </div>
-</article>{{ $options := site.Params.organizations.index.options }}
+    </div>
+  {{- end -}}
+</article>
