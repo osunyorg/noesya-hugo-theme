@@ -29,8 +29,11 @@
         blockquote,
         figcaption
             p
-                text-align: center
                 width: 100%
+            .signature
+                @include small
+                &::before
+                    content: "— "
 .block-posts--list article
     @include media-breakpoint-up(desktop)
         @include in-page-with-or-without-sidebar
