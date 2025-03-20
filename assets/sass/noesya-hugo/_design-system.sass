@@ -192,7 +192,10 @@ main
 // Hero
 .hero
     transition: color .3s ease
-
+    a
+        @include link
+        .has-menu-opened &
+            @include link(white)
 
 @include media-breakpoint-up(desktop)
     body
