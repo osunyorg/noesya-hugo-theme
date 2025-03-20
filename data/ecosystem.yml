@@ -13,6 +13,5 @@ websites:
     title: works
   - domain: sane
     title: sane
-  - domain: histoires
-    title: histoires
-    pending: true
+  - domain: maison
+    title: maison
