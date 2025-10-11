@@ -416,12 +416,6 @@ th
     font-weight: normal
     @include meta
 
-@media (prefers-color-scheme: light)
-    .lightbox
-        background: rgba(255, 255, 255, 0.8)
-        .lightbox-controls
-            > button
-                border: none
 // Dark mode
 @media (prefers-color-scheme: dark)
     header#document-header nav 
@@ -445,3 +439,8 @@ th
         header#document-header nav .logo
             img
                 filter: invert(1)
+    .lightbox
+        background: rgba(255, 255, 255, 0.8)
+        .lightbox-controls
+            > button
+                border: none
