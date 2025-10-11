@@ -416,6 +416,8 @@ th
     font-weight: normal
     @include meta
 
+.lightbox
+    background: rgba(255, 255, 255, 0.8)
 // Dark mode
 @media (prefers-color-scheme: dark)
     header#document-header nav 
@@ -431,6 +433,8 @@ th
             header#document-header nav .logo
                 img
                     filter: invert(0)
+    .lightbox
+        background: $lightbox-background-color
                 
 @media (prefers-color-scheme: light)
     .has-menu-opened
