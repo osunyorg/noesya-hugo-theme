@@ -30,6 +30,11 @@ class Footer {
             this.element.classList.remove('is-visible');
         }
     }
+
+    reinit () {
+        this.resize();
+    }
 }
 
-export default new Footer('footer#document-footer');
+window.noesya = window.noesya || {};
+window.noesya.footer = new Footer('footer#document-footer');
