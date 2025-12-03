@@ -23,12 +23,16 @@ body:not(.is-loaded) *
 ::-moz-selection
     background: transparentize($color-accent, .7)
     color: white
-    text-shadow: none 
+    text-shadow: none
+
 main
+    background: var(--color-background)
     min-height: 100vh
     transition: background .3s ease, color .3s ease
     background: var(--color-background)
     // This pseudo-element handles last block margin-bottom
+    position: relative
+    z-index: 10
     &::after
         content: ''
         display: block
@@ -44,6 +48,10 @@ main
 // Header
 header#document-header 
     pointer-events: none
+    // z-index: 62
+    html.has-offcanvas-opened &
+        opacity: 0
+        pointer-events: none
     .logo
         display: flex
         font-size: $header-logo-font-size
@@ -60,7 +68,7 @@ header#document-header
             margin-left: -2px
         em
             margin-top: -2px
-    nav
+    nav.primary-menu
         position: relative
         @include media-breakpoint-down(desktop)
             padding-top: 30px
@@ -78,7 +86,7 @@ header#document-header
             display: flex
             height: 50px
             justify-content: flex-end
-            transform: translateY(-15.5px)
+            transform: translateY(-12px)
             width: 50px
             z-index: 9
             span:first-of-type, &::after, &::before
@@ -182,10 +190,7 @@ header#document-header
                 transform: translateY(0)
                 .logo
                     opacity: 0
-                    
-main
-    background: var(--color-background)
-    position: relative
+
 
 // Hero
 .hero
@@ -212,7 +217,6 @@ footer#document-footer
     opacity: 0
     padding-bottom: var(--grid-gutter)
     padding-top: var(--grid-gutter)
-    z-index: -1
     &.is-visible
         opacity: 1
     .container
@@ -354,10 +358,10 @@ footer#document-footer
 // Menu opened
 .has-menu-opened 
     header#document-header 
-        nav button[type="button"][aria-controls="navigation"]
+        nav.primary-menu button[type="button"][aria-controls="navigation"]
             span:last-of-type
                 background: none !important
-        nav .header-button[aria-expanded="true"]
+        nav.primary-menu .header-button[aria-expanded="true"]
             span:not(:first-of-type)
                 &::after
                     content: ""
@@ -376,7 +380,7 @@ footer#document-footer
             &::before
                 transform: translateY(-9px) scaleX(0)
                 transition-delay: 0.1s
-        .menu
+        .menu.is-opened
             transform: translateX(0)
     header#document-header nav .logo 
         color: var(--color-background)
@@ -407,6 +411,12 @@ footer#document-footer
         .siblings-navigation
             border-color: var(--color-background)
             transition: border-color .3s ease
+
+html.has-offcanvas-opened 
+    body
+        &::after
+            z-index: 9
+
 .posts-navigation ul a
     transition: color .2s ease
     &:hover
