@@ -28,8 +28,6 @@ main
     min-height: 100vh
     transition: background .3s ease, color .3s ease
     background: var(--color-background)
-    position: relative
-    z-index: 10
     // This pseudo-element handles last block margin-bottom
     &::after
         content: ''
@@ -214,6 +212,7 @@ footer#document-footer
     opacity: 0
     padding-bottom: var(--grid-gutter)
     padding-top: var(--grid-gutter)
+    z-index: -1
     &.is-visible
         opacity: 1
     .container
