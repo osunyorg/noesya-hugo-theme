@@ -2,47 +2,54 @@
 .block-testimonials
     .signature + .meta
         font-family: $body-font-family
-    figcaption
-    @include in-page-with-or-without-sidebar
-        figure.with-picture
-            figcaption 
-                display: flex
-                margin: $spacing-4 auto 0
-                .avatar
-                    position: relative
-                    left: unset
-                    margin-left: unset
-                    top: unset
-                @include media-breakpoint-up(desktop)
-                    width: columns(5) // TODO CHECK
-                    .avatar
-                        width: 105px
-    @include in-page-without-sidebar
-        figure.with-picture
-            width: columns(8)
-            padding: 0
-            margin-left: auto
-            margin-right: auto
-            @include media-breakpoint-down(md)
-                width: 100%
-    @include media-breakpoint-up(desktop)
-        blockquote,
-        figcaption
-            p
-                width: 100%
-            .signature
-                @include small
-                &::before
-                    content: "— "
-.block-posts--list article
-    @include media-breakpoint-up(desktop)
+
+    &--carousel
         @include in-page-with-or-without-sidebar
-            padding-bottom: $spacing-4
-            + article
-                margin-top: 0
-                padding-top: $spacing-4
-                .post-meta
-                    top: $spacing-4
+            figure.with-picture
+                figcaption 
+                    display: flex
+                    margin: $spacing-4 auto 0 !important
+                    width: columns(6)
+                    .avatar
+                        left: unset !important
+                        margin-left: unset !important
+                        margin-right: $spacing-3
+                        position: relative !important
+                        top: unset !important
+                        width: 105px !important
+
+                    @include media-breakpoint-up(xl)
+                        width: columns(4)
+    
+        @include in-page-without-sidebar
+            figure.with-picture
+                width: columns(8)
+                padding: 0
+                margin-left: auto
+                margin-right: auto
+
+                @include media-breakpoint-down(md)
+                    width: 100%
+
+        @include media-breakpoint-up(desktop)
+            blockquote,
+            figcaption
+                p
+                    width: 100%
+                .signature
+                    @include small
+                    &::before
+                        content: "— "
+                
+.block-posts--list article
+    @include in-page-with-or-without-sidebar
+        padding-bottom: $spacing-4
+        + article
+            margin-top: 0
+            padding-top: $spacing-4
+            .post-meta
+                top: $spacing-4
+
 .block-image 
     @include in-page-with-sidebar
         picture
