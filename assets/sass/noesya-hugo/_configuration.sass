@@ -8,6 +8,18 @@ $color-background-alt: #ECECEC !default
 $color-background: #FFFFFF !default
 $link-underline-offset: 0.08em !default
 
+// Scheme Dark colors (enable dark mode in your hugo configuration file)
+$has-dark-mode: true !default
+$color-dark-accent: white !default
+$color-dark-text: #ffffff !default
+$color-dark-text-alt: #c1c1c1 !default
+$color-dark-background: #0d0c0c !default
+$color-dark-background-alt: #131313 !default
+$color-dark-border: rgba(255, 255, 255, 0.3) !default
+$color-dark-selection: $color-dark-background !default
+$color-dark-selection-background: rgba($color-dark-text, .7) !default
+
+
 // TYPOGRAPHY
 
 // Fonts family
@@ -24,6 +36,9 @@ $h1-text-transform: none !default
 $h1-weight: normal !default
 $h3-weight: normal !default
 $h4-weight: normal !default
+
+
+$default-duration: 0.3s
 
 // Lead
 $lead-font-family: $body-font-family !default
@@ -55,7 +70,8 @@ $hero-height: 300px !default
 $hero-height-desktop: 728px !default
 
 // TOC
-$toc-active-color: $color-text-alt !default
+$toc-active-color: var(--color-text-alt) !default
+$zindex-toc: 60
 
 // BLOCKS
 $block-testimonials-font-family: $quote-font-family !default
@@ -71,14 +87,3 @@ $btn-border-radius: 0 !default
 
 // New variables
 $header-logo-font-size: pxToRem(25) !default
-
-// Scheme Dark colors (enable dark mode in your hugo configuration file)
-$has-dark-mode: true !default
-$color-dark-accent: white !default
-$color-dark-text: #ffffff !default
-$color-dark-text-alt: #c1c1c1 !default
-$color-dark-background: #0d0c0c !default
-$color-dark-background-alt: #131313 !default
-$color-dark-border: rgba(255, 255, 255, 0.3) !default
-$color-dark-selection: $color-dark-background !default
-$color-dark-selection-background: rgba($color-dark-text, .7) !default

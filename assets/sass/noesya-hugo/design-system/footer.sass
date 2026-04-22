@@ -1,0 +1,157 @@
+
+// Footer
+footer#document-footer
+    background: var(--color-text)
+    color: var(--color-background)
+    font-size: $body-size-desktop
+    opacity: 0
+    padding-bottom: var(--grid-gutter)
+    padding-top: var(--grid-gutter)
+    &.is-visible
+        opacity: 1
+    .container
+        position: relative
+    ul li a
+        color: var(--color-background)
+        opacity: 0.65
+        text-decoration: none
+        transition: color $color-duration ease
+        &:hover
+            color: var(--color-background)
+            opacity: 1
+            text-decoration: none
+    .footer-social li,
+    .footer-legals li
+        font-size: $body-size-desktop
+    nav li,
+    nav li a,
+    nav li span
+        font-family: $heading-font-family
+        font-size: pxToRem(22)
+        line-height: pxToRem(36)
+        text-decoration: none
+    nav li span
+        color: var(--color-background)
+        opacity: 0.4
+    .footer-logo
+        align-items: flex-end
+        display: flex
+        a
+            width: fit-content
+            &::after
+                display: none
+            + a
+                margin-left: var(--grid-gutter)
+    @include media-breakpoint-up(xxl)
+        padding-top: calc(#{var(--grid-gutter)} * 2)
+        .footer-logo
+            bottom: var(--grid-gutter)
+        nav 
+            margin-top: -14px
+            @media screen and (min-height: 800px)
+                li + li
+                    margin-top: $spacing-2
+    @include media-breakpoint-up(xl)
+        justify-content: space-between
+        nav li + li 
+            margin-top: 0
+        @media screen and (max-height: 800px)
+            justify-content: flex-end
+        @media screen and (min-height: 950px)
+            nav li,
+            nav li a,
+            nav li span
+                margin-bottom: 0
+            .footer-logo
+                > img
+                    width: columns(2)
+    @include media-breakpoint-up(lg)
+        nav li,
+        nav li a,
+        nav li span
+            font-size: pxToRem(40)
+            line-height: 1.4
+    @media screen and (min-height: 850px)
+        nav li,
+        nav li a,
+        nav li span
+            font-size: pxToRem(55)
+            line-height: pxToRem(75)
+    @include media-breakpoint-up(desktop)
+        position: fixed
+        bottom: 0
+        height: 100vh
+        width: 100%
+        display: flex
+        flex-direction: column
+        address
+            width: columns(3)
+            p
+                margin-bottom: $spacing-3
+        nav
+            margin-left: auto
+            width: columns(5)
+            @media screen and (max-height: 700px)
+                li,
+                li a,
+                li span
+                    font-size: pxToRem(32)
+                    line-height: pxToRem(45)
+        .footer-logo
+            bottom: var(--grid-gutter)
+            left: var(--grid-gutter)
+            position: absolute
+            width: columns(5)
+            > img 
+                margin-left: calc(#{offset(2)} + #{var(--grid-gutter)})
+                width: columns(1.5) // TODO CHECK
+                @media screen and (max-height: 800px)
+                    width: columns(1.5) // TODO CHECK
+                @media screen and (max-height: 600px)
+                    width: columns(1.2) // TODO CHECK
+        .container:first-of-type
+            justify-content: unset
+            gap: var(--grid-gutter)
+            flex: 1
+        .container:last-of-type
+            justify-content: space-between
+            padding-top: 0
+            ul
+                align-items: center
+                display: flex
+                gap: $spacing-3
+                li + li
+                    margin: 0
+    @include media-breakpoint-down(desktop)
+        address > p
+            margin-bottom: $spacing-3
+        nav li,
+        nav li a,
+        nav li span
+            font-size: pxToRem(36)
+            line-height: 1.4
+        .footer-logo
+            flex-direction: row-reverse
+            justify-content: space-between 
+            margin-bottom: $spacing-5
+            width: 100%
+            > img
+                width: columns(3)
+        .container + .container 
+            margin-top: $spacing-2
+            div + div
+                margin-top: $spacing-2
+    @include media-breakpoint-down(md)
+        .footer-logo 
+            > img
+                width: columns(4) // TODO CHECK
+    @include media-breakpoint-down(sm)
+        .footer-logo > img
+            width: columns(5)
+    @media (prefers-color-scheme: dark)
+        .footer-logo a img
+            filter: invert(1)
+
+@include media-breakpoint-up(desktop)
+    body
+        padding-bottom: 100vh

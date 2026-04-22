@@ -1,0 +1,7 @@
+// Hero
+.hero
+    transition: color $color-duration ease
+    a
+        @include link
+        .has-menu-opened &
+            @include link(var(--color-text))
