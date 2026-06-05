@@ -22,6 +22,10 @@
                         width: columns(4)
     
         @include in-page-without-sidebar
+            .testimonials
+                &:has(>li:only-child)
+                    justify-content: center
+                    transform: translate(0) !important
             figure.with-picture
                 width: columns(8)
                 padding: 0
