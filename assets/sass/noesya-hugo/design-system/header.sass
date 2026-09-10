@@ -134,12 +134,12 @@ header#document-header
                     transition: opacity $color-duration ease
                     @include media-breakpoint-up(md)
                         @include h1
-                &:hover a,
+                &:has(a:hover) a,
                 &:focus-within a
                     color: var(--color-text)
                     opacity: .35
                 a:hover
-                    opacity: 1
+                    opacity: 1 !important
             @include media-breakpoint-up(desktop)
                 width: calc(50vw + min(1040px, calc(100vw - 390px)) / 2)
             @include media-breakpoint-up(lg)
