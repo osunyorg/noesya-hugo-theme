@@ -34,14 +34,10 @@ footer#document-footer
         color: var(--color-background)
         opacity: 0.4
     .footer-logo
-        align-items: flex-end
-        display: flex
         a
             width: fit-content
             &::after
                 display: none
-            + a
-                margin-left: var(--grid-gutter)
     @include media-breakpoint-up(xxl)
         padding-top: calc(#{var(--grid-gutter)} * 2)
         .footer-logo
@@ -103,7 +99,6 @@ footer#document-footer
             position: absolute
             width: columns(5)
             > img 
-                margin-left: calc(#{offset(2)} + #{var(--grid-gutter)})
                 width: columns(1.5) // TODO CHECK
                 @media screen and (max-height: 800px)
                     width: columns(1.5) // TODO CHECK
@@ -137,6 +132,13 @@ footer#document-footer
             width: 100%
             > img
                 width: columns(3)
+        .nav-legal
+            li + li,
+                margin-top: $spacing-3
+        .footer-social  
+            &, 
+            li + li
+                margin-top: $spacing-3 !important
         .container + .container 
             margin-top: $spacing-2
             div + div
