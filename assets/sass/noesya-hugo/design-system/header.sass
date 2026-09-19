@@ -41,10 +41,7 @@ header#document-header
             transition: color $color-duration ease
     nav.primary-menu
         position: relative
-        @include media-breakpoint-down(desktop)
-            padding-top: 30px
-        @include media-breakpoint-up(md)
-            padding-top: var(--grid-gutter)
+        padding-top: var(--grid-gutter)
         > .container 
             align-items: flex-start
             height: $header-logo-height
