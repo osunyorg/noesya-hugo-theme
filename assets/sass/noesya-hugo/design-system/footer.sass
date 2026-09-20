@@ -42,6 +42,8 @@ footer#document-footer
                 display: none
             + a
                 margin-left: var(--grid-gutter)
+    address
+        @include body-text
     @include media-breakpoint-up(xxl)
         padding-top: calc(#{var(--grid-gutter)} * 2)
         .footer-logo
@@ -123,8 +125,15 @@ footer#document-footer
                 li + li
                     margin: 0
     @include media-breakpoint-down(desktop)
-        address > p
-            margin-bottom: $spacing-3
+        address
+            > p
+                margin-bottom: $spacing-3
+            + address
+                margin-top: 0 !important
+                position: absolute
+                right: var(--grid-gutter)
+                text-align: end
+                top: 0
         nav li,
         nav li a,
         nav li span
