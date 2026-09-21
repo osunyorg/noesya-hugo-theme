@@ -5,3 +5,8 @@
         @include link
         .has-menu-opened &
             @include link(var(--color-text))
+    @include media-breakpoint-up(desktop)
+        .content
+            // padding-top: 0
+            .hero-text
+                padding-top: pxToRem(35)
