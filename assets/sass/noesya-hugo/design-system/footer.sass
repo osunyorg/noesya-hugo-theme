@@ -38,6 +38,11 @@ footer#document-footer
             width: fit-content
             &::after
                 display: none
+            + a
+                margin-left: var(--grid-gutter)
+    address
+        @include body-text
+
     @include media-breakpoint-up(xxl)
         padding-top: calc(#{var(--grid-gutter)} * 2)
         .footer-logo
@@ -47,6 +52,7 @@ footer#document-footer
             @media screen and (min-height: 800px)
                 li + li
                     margin-top: $spacing-2
+
     @include media-breakpoint-up(xl)
         justify-content: space-between
         nav li + li 
@@ -61,18 +67,20 @@ footer#document-footer
             .footer-logo
                 > img
                     width: columns(2)
+
     @include media-breakpoint-up(lg)
         nav li,
         nav li a,
         nav li span
             font-size: pxToRem(40)
             line-height: 1.4
+
     @media screen and (min-height: 850px)
         nav li,
         nav li a,
         nav li span
-            font-size: pxToRem(55)
-            line-height: pxToRem(75)
+            @include h1
+
     @include media-breakpoint-up(desktop)
         position: fixed
         bottom: 0
@@ -118,13 +126,19 @@ footer#document-footer
                 li + li
                     margin: 0
     @include media-breakpoint-down(desktop)
-        address > p
-            margin-bottom: $spacing-3
+        address
+            > p
+                margin-bottom: $spacing-3
+            + address
+                margin-top: 0 !important
+                position: absolute
+                right: var(--grid-gutter)
+                text-align: end
+                top: 0
         nav li,
         nav li a,
         nav li span
-            font-size: pxToRem(36)
-            line-height: 1.4
+            @include h1
         .footer-logo
             flex-direction: row-reverse
             justify-content: space-between 
@@ -143,13 +157,16 @@ footer#document-footer
             margin-top: $spacing-2
             div + div
                 margin-top: $spacing-2
+
     @include media-breakpoint-down(md)
         .footer-logo 
             > img
                 width: columns(4) // TODO CHECK
+
     @include media-breakpoint-down(sm)
         .footer-logo > img
             width: columns(5)
+
     @media (prefers-color-scheme: dark)
         .footer-logo a img
             filter: invert(1)
