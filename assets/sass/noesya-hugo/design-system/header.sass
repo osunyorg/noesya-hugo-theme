@@ -35,6 +35,7 @@ header#document-header
             z-index: 9
         img
             margin-left: -2px
+            margin-top: -2px
             transition: $color-duration ease
         em
             margin-top: -2px
@@ -116,9 +117,12 @@ header#document-header
                 @extend .container
                 display: flex
                 align-items: flex-start
+                justify-content: end
                 flex-direction: column
                 gap: $spacing-2
                 margin: 0
+                padding-bottom: var(--grid-gutter)
+                height: 100%
                 a
                     @include h2
                     padding: 0
@@ -126,14 +130,13 @@ header#document-header
                     transition: opacity $color-duration ease
                     @include media-breakpoint-up(md)
                         @include h1
-                &:hover a,
+                &:has(a:hover) a,
                 &:focus-within a
                     color: var(--color-text)
                     opacity: .35
                 a:hover
-                    opacity: 1
+                    opacity: 1 !important
             @include media-breakpoint-up(desktop)
-                padding-top: 253px
                 width: calc(50vw + min(1040px, calc(100vw - 390px)) / 2)
             @include media-breakpoint-up(lg)
                 width: calc(50vw + min(1010px, calc((100vw - 100px) * (10/12) - 110px)) / 2)
@@ -142,13 +145,12 @@ header#document-header
                 max-height: unset
                 ul 
                     align-items: flex-start
-                    justify-content: center
-                    height: 100%
+                    // justify-content: center
+                    // height: 100%
                     li 
                         border: none
                         a
                             @include h1
-                
     html.is-scrolling-down:not(.has-menu-opened) &
         @include media-breakpoint-down(desktop)
             transform: translateY(0)
@@ -159,9 +161,6 @@ header#document-header
                 transform: translateY(0)
                 .logo
                     opacity: 0
-    // &.is-sticky
-    //     html:not(.is-scrolling-down) &
-    //         background: var(--color-background)
 
 // Menu opened
 .has-menu-opened 

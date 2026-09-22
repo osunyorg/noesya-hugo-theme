@@ -32,6 +32,9 @@ $body-size-desktop: pxToRem(22) !default
 $h1-size: pxToRem(36) !default
 $h1-line-height: 136% !default
 $h1-size-desktop: pxToRem(55) !default
+$h1-line-height-desktop: pxToRem(75) !default
+$h2-size-desktop: pxToRem(45) !default
+$h2-line-height-desktop: 130% !default
 $h1-text-transform: none !default
 $h1-weight: normal !default
 
@@ -64,7 +67,7 @@ $header-background: transparent !default
 $header-sticky-background: transparent !default
 $header-border-bottom-width: 0 !default
 $header-logo-height: 27px !default
-$header-logo-height-desktop: 30px !default
+$header-logo-height-desktop: 33px !default
 
 // Navs
 $body-overlay-color: rgba(0, 0, 0, 0) !default
@@ -92,3 +95,10 @@ $btn-border-radius: 0 !default
 
 // New variables
 $header-logo-font-size: pxToRem(25) !default
+
+// ICONS
+$icons-custom-font-family: 'icomoon'
+$icons-custom: ()
+$icons-custom: map-merge($icons-custom, ("links-line": "\e900"))
+$icons-custom: map-merge($icons-custom, ("arrow-right-line": "\e901"))
+$icons-custom: map-merge($icons-custom, ("arrow-left-line": "\e902"))
