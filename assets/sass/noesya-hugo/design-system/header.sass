@@ -113,7 +113,7 @@ header#document-header
             transform: translateX(100%)
             transition: transform $color-duration ease
             width: 100%
-            ul 
+            > ul
                 @extend .container
                 display: flex
                 align-items: flex-start
@@ -123,7 +123,8 @@ header#document-header
                 margin: 0
                 padding-bottom: var(--grid-gutter)
                 height: 100%
-                a
+                > li > a,
+                > li > span
                     @include h2
                     padding: 0
                     text-decoration: none
@@ -161,6 +162,30 @@ header#document-header
                 transform: translateY(0)
                 .logo
                     opacity: 0
+// Submenus
+header#document-header 
+    @include media-breakpoint-up(desktop)
+        nav.primary-menu
+            .has-children
+                display: flex
+                gap: $spacing-3
+                align-items: baseline
+                margin: 0
+                > a, > span
+                    &::after
+                        display: none
+            .dropdown-menu
+                position: relative
+                padding-left: 0
+                padding-bottom: 0
+                margin: 0
+                opacity: 0
+                &:hover
+                    opacity: 1
+                .nav-level-2
+                    display: flex
+                    gap: $spacing-2
+
 
 // Menu opened
 .has-menu-opened 
