@@ -117,12 +117,13 @@ header#document-header
                 @extend .container
                 display: flex
                 align-items: flex-start
-                justify-content: end
                 flex-direction: column
                 gap: $spacing-2
                 margin: 0
                 padding-bottom: var(--grid-gutter)
                 height: 100%
+                @include media-breakpoint-up(desktop)
+                    margin-top: pxToRem(276)
                 > li > a,
                 > li > span
                     @include h2
@@ -146,8 +147,8 @@ header#document-header
                 max-height: unset
                 ul 
                     align-items: flex-start
-                    // justify-content: center
-                    // height: 100%
+                    justify-content: center
+                    height: 100%
                     li 
                         border: none
                         a
