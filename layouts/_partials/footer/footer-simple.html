@@ -1,3 +1,5 @@
+{{ $is_main_site := false }}
+
 <div class="container">
   <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
     <p itemprop="name">noesya Paris</p>
@@ -14,6 +16,9 @@
   <nav aria-label="Navigation dans l'écosystème" class="ecosystem">
     <ul>
       {{ range site.Data.ecosystem.websites }}
+        {{ if eq .domain "www" }}
+          {{ $is_main_site = true }}
+        {{ end }}
         <li>
           {{ if eq .domain site.Params.ecosystem }}
             {{ .title }}
@@ -33,13 +38,11 @@
 <div class="container">
   <div class="footer-legals">
     <ul class="nav-legal nav-level-1">
-      <li><a href="https://www.noesya.coop/mentions-legales/" target="_blank" rel="noreferrer" title="Mentions légales - lien externe">Mentions légales</a></li>
-      <li><a href="https://www.noesya.coop/politique-de-sobriete" target="_blank" rel="noreferrer" title="Politique de sobriété - lien externe">Politique de sobriété</a></li>
+      <li><a href="https://www.noesya.coop/mentions-legales/" {{ if not $is_main_site -}} target="_blank" rel="noreferrer" {{- end }} title="Mentions légales - lien externe">Mentions légales</a></li>
     </ul>
   </div>
   <div class="footer-social">
     <ul class="nav-social nav-level-1">
-      <li><a href="https://www.linkedin.com/company/noesyacoop" target="_blank" rel="noreferrer" title="Linkedin - lien externe">LinkedIn</a></li>
       <li><a href="mailto:contact@noesya.coop">contact@noesya.coop</a></li>
     </ul>
   </div>
