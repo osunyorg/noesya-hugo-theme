@@ -1,3 +1,5 @@
+{{ $is_main_site := false }}
+
 <div class="container">
   <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
     <p itemprop="name">noesya Paris</p>
@@ -15,7 +17,8 @@
     <ul>
       {{ range site.Data.ecosystem.websites }}
         <li>
-          {{ if eq .domain site.Params.ecosystem }}
+          {{ if eq .domain "www" }}
+            {{ $is_main_site = true }}
             {{ .title }}
           {{ else if .pending }}
             <span title="Ce site sera disponible bientôt..." aria-hidden="true">{{ .title }}</span>
@@ -33,7 +36,7 @@
 <div class="container">
   <div class="footer-legals">
     <ul class="nav-legal nav-level-1">
-      <li><a href="https://www.noesya.coop/mentions-legales/" target="_blank" rel="noreferrer" title="Mentions légales - lien externe">Mentions légales</a></li>
+      <li><a href="https://www.noesya.coop/mentions-legales/" {{ if not $is_main_site -}} target="_blank" rel="noreferrer" {{- end }} title="Mentions légales - lien externe">Mentions légales</a></li>
     </ul>
   </div>
   <div class="footer-social">
