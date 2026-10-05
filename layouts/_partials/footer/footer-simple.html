@@ -16,9 +16,6 @@
   <nav aria-label="Navigation dans l'écosystème" class="ecosystem">
     <ul>
       {{ range site.Data.ecosystem.websites }}
-        {{ if eq .domain "www" }}
-          {{ $is_main_site = true }}
-        {{ end }}
         <li>
           {{ if eq .domain site.Params.ecosystem }}
             {{ .title }}
