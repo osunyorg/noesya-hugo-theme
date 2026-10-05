@@ -79,7 +79,8 @@ footer#document-footer
         nav li,
         nav li a,
         nav li span
-            @include h1
+            font-size: $large-title-size-desktop
+            line-height: $large-title-line-height-desktop
 
     @include media-breakpoint-up(desktop)
         position: fixed
@@ -119,6 +120,7 @@ footer#document-footer
         .container:last-of-type
             justify-content: space-between
             padding-top: 0
+            margin-top: auto
             ul
                 align-items: center
                 display: flex
