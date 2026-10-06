@@ -1,14 +1,13 @@
 
 // Footer
 footer#document-footer
-    background: var(--color-text)
+    background: var(--color-background)
     color: var(--color-background)
     font-size: $body-size-desktop
-    opacity: 0
     padding-bottom: var(--grid-gutter)
     padding-top: var(--grid-gutter)
-    &.is-visible
-        opacity: 1
+    html.has-menu-sticky &
+        background: var(--color-text)
     .container
         position: relative
     ul li a
