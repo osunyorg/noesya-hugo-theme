@@ -29,7 +29,22 @@
     </ul>
   </nav>
   <div class="footer-logo">
-    <img src="/assets/images/chouette/small.png" alt="">
+    {{ if site.Params.custom.footer.use_home_image }}
+      {{ with site.Home.Params.image }}
+        {{ partial "commons/image.html" (dict
+          "image" .id
+          "alt" .alt
+          "sizes" (dict
+            "mobile" "130"
+            "tablet" "165"
+            "desktop" "165"
+          )
+          "lazy" true
+        ) }}
+      {{ end }}
+    {{ else }}
+      <img src="/assets/images/chouette/small.png" alt="" width="364" height="668">
+    {{ end }}
   </div>
 </div>
 <div class="container">

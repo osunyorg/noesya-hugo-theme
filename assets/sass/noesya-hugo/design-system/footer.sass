@@ -32,15 +32,11 @@ footer#document-footer
     nav li span
         color: var(--color-background)
         opacity: 0.4
-    .footer-logo
-        a
-            width: fit-content
-            &::after
-                display: none
-            + a
-                margin-left: var(--grid-gutter)
     address
         @include body-text
+    .footer-logo
+        img
+            width: pxToRem(150)
 
     @include media-breakpoint-up(xxl)
         padding-top: calc(#{var(--grid-gutter)} * 2)
@@ -63,9 +59,6 @@ footer#document-footer
             nav li a,
             nav li span
                 margin-bottom: 0
-            .footer-logo
-                > img
-                    width: columns(2)
 
     @include media-breakpoint-up(lg)
         nav li,
@@ -107,10 +100,7 @@ footer#document-footer
             left: var(--grid-gutter)
             position: absolute
             width: columns(5)
-            > img 
-                width: columns(1.5) // TODO CHECK
-                @media screen and (max-height: 800px)
-                    width: columns(1.5) // TODO CHECK
+            img
                 @media screen and (max-height: 600px)
                     width: columns(1.2) // TODO CHECK
         .container:first-of-type
@@ -146,32 +136,17 @@ footer#document-footer
             justify-content: space-between 
             margin-bottom: $spacing-5
             width: 100%
-            > img
-                width: columns(3)
         .nav-legal
             li + li,
                 margin-top: $spacing-3
-        .footer-social  
-            &, 
+        .footer-social
+            &,
             li + li
                 margin-top: $spacing-3 !important
-        .container + .container 
+        .container + .container
             margin-top: $spacing-2
             div + div
                 margin-top: $spacing-2
-
-    @include media-breakpoint-down(md)
-        .footer-logo 
-            > img
-                width: columns(4) // TODO CHECK
-
-    @include media-breakpoint-down(sm)
-        .footer-logo > img
-            width: columns(5)
-
-    @media (prefers-color-scheme: dark)
-        .footer-logo a img
-            filter: invert(1)
 
 @include media-breakpoint-up(desktop)
     body
