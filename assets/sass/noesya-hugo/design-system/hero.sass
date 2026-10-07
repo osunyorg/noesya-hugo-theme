@@ -3,13 +3,15 @@
     transition: color $color-duration ease
     a
         @include link
+        transition: color $color-duration ease, text-decoration-color $color-duration ease !important
         .has-menu-opened &
             @include link(var(--color-text))
+
     @include media-breakpoint-up(desktop)
         .content
             .hero-text
                 padding-top: pxToRem(45)
-        &:not(.hero--with-image)
+        &:where(:not(.hero--with-image))
             .content
                 .hero-text
                     width: columns(11)
