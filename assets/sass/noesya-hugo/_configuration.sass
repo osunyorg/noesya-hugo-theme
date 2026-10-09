@@ -38,17 +38,26 @@ $h1-text-transform: none !default
 $h1-weight: normal !default
 
 $h2-size: pxToRem(28) !default
-$h2-size-desktop: pxToRem(45) !default
+$h2-size-desktop: pxToRem(52) !default
 $h2-line-height: 1.4 !default
-$h2-line-height-desktop: pxToRem(54) !default
+$h2-line-height-desktop: pxToRem(68) !default
 $h2-weight: normal !default
 
-$h3-size-desktop: pxToRem(26) !default
-$h3-line-height-desktop: pxToRem(39) !default
+$h3-size-desktop: pxToRem(45) !default
+$h3-line-height-desktop: pxToRem(54) !default
 $h3-weight: normal !default
 
+
+$h4-size-desktop: pxToRem(26) !default
+$h4-line-height-desktop: pxToRem(39) !default
 $h4-weight: normal !default
+$h4-text-transform: normal !default
+
 $h5-text-transform: normal !default
+$h6-text-transform: normal !default
+
+$lead-size-desktop: pxToRem(38)
+$lead-line-height-desktop: pxToRem(50)
 
 // for footer titles
 $large-title-size-desktop: pxToRem(52) !default
@@ -73,6 +82,10 @@ $meta-font-family: $body-font-family !default
 // Small
 $small-size-desktop: Max(16px, #{pxToRem(18)})
 $small-size: pxToRem(16)
+
+
+$meta-size-desktop: $small-size-desktop
+$meta-size: $small-size
 
 // Header
 $header-background: transparent !default
@@ -116,3 +129,49 @@ $icons-custom: map-merge($icons-custom, ("arrow-right-line": "\e902"))
 $icons-custom: map-merge($icons-custom, ("arrow-left-line": "\e901"))
 $icons-custom: map-merge($icons-custom, ("arrow-down-s-line": "\e903"))
 $icons-custom: map-merge($icons-custom, ("arrow-up-s-line": "\e904"))
+
+
+/// NOESYA.COOP
+    
+// colors
+$color-background-alt: #F2F2F2
+$color-border: rgba(0,0,0,0.1)
+$color-title-alt: #767676 // only for typo with 18pt+ size
+$color-disabled: #8F8E8E
+
+// typography
+// $body-size-desktop: pxToRem(25)
+// $body-line-height-desktop: pxToRem(45)
+// $h3-size-desktop: pxToRem(38)
+// $h3-line-height-desktop: pxToRem(50)
+// $h3-font-family: var(--body-font-family)
+// $h4-size-desktop: pxToRem(26)
+// $h4-line-height: pxToRem(45)
+// $h5-text-transform: normal
+// $small-size: pxToRem(16)
+
+$lead-size-desktop: pxToRem(38)
+$lead-line-height-desktop: pxToRem(50)
+
+$letter-size-desktop: pxToRem(128)
+$letter-line-height-desktop: pxToRem(94)
+
+// blocks
+$block-chapter-layout-alt-background: transparent
+$block-chapter-layout-alt-color: inherit
+$block-chapter-layout-accent-background: transparent
+$block-chapter-layout-accent-color: inherit
+$block-testimonials-style: italic
+$quote-style: italic
+
+// New variables
+$project-navigation-title: pxToRem(45)
+$project-navigation-text: pxToRem(26)
+
+$post-title-size: pxToRem(75)
+$post-title-line-height: 100%
+$post-date-size: pxToRem(46)
+$post-date-line-height: 120%
+
+$heading-margin-top-desktop: pxToRem(160)
+$heading-margin-bottom-desktop: pxToRem(40)
