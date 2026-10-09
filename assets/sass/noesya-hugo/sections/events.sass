@@ -1,0 +1,55 @@
+.events--agenda
+    .events-date--sticky
+        .events-date-title,
+        .events-date-title.is-down
+            @include h4
+    
+.events__page
+    @include media-breakpoint-up(desktop)
+        .hero--image-portrait,
+        .hero--image-square
+            .hero-text
+                padding-top: 0
+                margin-top: -0.3em !important
+        .hero--image-landscape
+            .hero-text
+                margin-top: 0
+        .hero
+            padding-bottom: 0
+            .content
+                padding-top: 0
+
+.events
+    .event
+        .event-content
+            .event-hours
+                time
+                    @include body-text
+                    font-family: $heading-font-family
+                    + time
+                        &::before
+                            content: '— '
+            .more
+                @include link(false, false)
+                &::after
+                    display: none
+            &:hover
+                .more
+                    text-decoration: underline
+
+    @include in-page-with-or-without-sidebar
+        &--large
+            .event
+                align-items: end
+                .event-content
+                    .event-title,
+                    .event-subtitle
+                        @include h2
+                    .event-dates
+                        @include body-text
+                        font-family: $heading-font-family
+                    .event-schedule
+                        display: flex
+                        align-items: baseline
+                        gap: $spacing-2
+                        margin-top: 0

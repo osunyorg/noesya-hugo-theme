@@ -1,0 +1,53 @@
+html
+    scroll-behavior: smooth
+    @include media-breakpoint-up(sm)
+        font-size: Min(Max(1vw, 13px), 16px)
+
+    &.is-animating
+        *
+            transition: color $color-duration ease, background $color-duration ease // Fix weird various animation duration
+
+// Layout
+body:not(.is-loaded) *
+    transition-duration: 0s !important
+
+main
+    background: var(--color-background)
+    min-height: 100vh
+    transition: background $color-duration ease, color $color-duration ease
+    // This pseudo-element handles last block margin-bottom
+    position: relative
+    z-index: 10
+    &::after
+        content: ''
+        display: block
+        height: 1px
+
+
+// Link animation
+// Not used from now but interesting
+// @keyframes nav-hover-in
+//     0%
+//         left: 0
+//         right: auto
+//         width: 0%
+//     99%
+//         left: 0
+//         right: auto
+//     100%
+//         right: 0
+//         left: auto
+//         width: 100%
+
+// @keyframes nav-hover-out
+//     0%
+//         right: 0
+//         left: auto
+//         width: 100%
+//     99%
+//         left: auto
+//         right: 0
+//     100%
+//         left: 0
+//         right: auto
+//         width: 0%

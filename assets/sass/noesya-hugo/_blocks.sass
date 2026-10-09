@@ -44,7 +44,7 @@
                     @include small
                     &::before
                         content: "— "
-                
+
 .block-posts--list article
     @include in-page-with-or-without-sidebar
         padding-bottom: $spacing-4
@@ -58,3 +58,11 @@
     @include in-page-with-sidebar
         picture
             margin-right: unset
+
+.block
+    .top
+        .block-title
+            a
+                @include link($unhover_decorated: false)
+                &:after
+                    display: none
