@@ -35,3 +35,50 @@
         .toc-container
             border-top: none !important
             padding-top: 0 !important
+
+
+// for 'réseau' and 'gouvernance' persons, organizations and documents pages
+@mixin category-button
+    @include button-small
+    @include body-text
+    --btn-color: var(--color-text-alt)
+    --btn-border: 1px solid #{$color-border-alt}
+    --btn-border-radius: #{$btn-border-radius}
+    --btn-hover-background: var(--color-text)
+    --btn-hover-color: var(--color-background)
+    --btn-hover-border: 1px solid var(--color-text)
+    --btn-small-padding: #{space()} #{$spacing-2}
+    min-width: unset
+
+@mixin index-taxonomies-style
+    .taxonomies-list--inline
+        gap: $spacing-5
+        .taxonomy-categories
+            > span
+                @include h3
+                font-family: $body-font-family
+                display: block
+                margin-bottom: $spacing-3
+
+        .taxonomy-categories-list
+            display: flex
+            flex-wrap: wrap
+            gap: $spacing-1
+            a, span
+                @include category-button
+            > li
+                .extendable-button[aria-expanded="true"]
+                    color: var(--color-background)
+                    background: var(--color-text)
+                ul
+                    border-top: none
+                    padding-left: 0
+
+    @include media-breakpoint-down(desktop)
+        .taxonomies-list--inline
+            .taxonomy-categories + .taxonomy-categories
+                margin-top: $spacing-4
+
+    @include media-breakpoint-up(desktop)
+        .taxonomies-list--inline
+            grid-template-columns: repeat(1, 1fr)
