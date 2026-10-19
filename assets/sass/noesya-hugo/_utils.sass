@@ -17,3 +17,27 @@
     --color-background: #{$color-background}
     --color-selection: #{$color-selection}
     --color-selection-background: #{$color-selection-background}
+
+@mixin button-light
+    @include button
+    --btn-color: var(--color-text)
+    --btn-background: var(--color-background)
+    --btn-border: none
+    --btn-hover-color: var(--color-text)
+    --btn-hover-background: var(--color-background-alt)
+    --btn-hover-border: none
+
+.button--light
+    @include button-light
+
+@mixin button-dark
+    @include button
+    --btn-color: var(--color-background)
+    --btn-background: var(--color-text)
+    --btn-border: none
+    --btn-hover-color: var(--color-text)
+    --btn-hover-background: var(--color-background-alt)
+    --btn-hover-border: none
+
+.button--dark
+    @include button-dark
