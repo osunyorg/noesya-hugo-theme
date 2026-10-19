@@ -14,13 +14,12 @@
         width: 20px
 
 // Header
-header#document-header 
+header#document-header
     pointer-events: none
-    // z-index: 62
-    // html.has-offcanvas-opened &
-    //     *
-    //         opacity: 0
-    //         pointer-events: none !important
+    html.has-offcanvas-opened &
+        body
+            &::after
+                z-index: 9
     .logo
         display: flex
         font-size: $header-logo-font-size

@@ -1,0 +1,44 @@
+@mixin large-number-or-letter
+    font-size: $letter-size-desktop
+    line-height: $letter-line-height-desktop
+    font-family: $heading-font-family
+
+.block
+    p
+        a
+            text-decoration-color: inherit // usefull ?
+    .block-title
+        @include h3
+
+th
+    font-weight: normal
+    @include meta
+
+q
+    &::before
+        content: "« "
+    &::after
+        content: " »"
+
+::selection
+    background: transparentize($color-accent, .7)
+    color: white
+    text-shadow: none
+
+::-moz-selection
+    background: transparentize($color-accent, .7)
+    color: white
+    text-shadow: none
+
+.rich-text
+    a[target="_blank"]:not(.icon)
+        @include icon(external-link-line, after)
+            content: "↗" // TODO replace with icomoon font
+            font-family: $heading-font-family
+            display: inline
+            vertical-align: middle
+            opacity: 0.75
+            font-size: Max(10px, 0.4em)
+        &:hover
+            &::after
+                opacity: 1

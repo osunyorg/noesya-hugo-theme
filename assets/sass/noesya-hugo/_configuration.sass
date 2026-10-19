@@ -3,11 +3,15 @@
 $color-accent: #000000 !default
 $color-text: #000000 !default
 $color-text-alt: #454545 !default
-$color-border: rgba(0, 0, 0, 0.30) !default
-$color-border-alt: rgba(0,0,0,0.1) !default
-$color-background-alt: #ECECEC !default
+// $color-border: rgba(0, 0, 0, 0.30) !default
+$color-border: rgba(0,0,0,0.1) !default
 $color-background: #FFFFFF !default
+$color-background-alt: #F2F2F2 !default
+$color-disabled: #8F8E8E !default
+
 $link-underline-offset: 0.08em !default
+
+$color-title-alt: #767676 !default // only for typo with 18pt+ size
 
 // Scheme Dark colors (enable dark mode in your hugo configuration file)
 $has-dark-mode: true !default
@@ -39,26 +43,27 @@ $h1-text-transform: none !default
 $h1-weight: normal !default
 
 $h2-size: pxToRem(28) !default
-$h2-size-desktop: pxToRem(45) !default
+$h2-size-desktop: pxToRem(52) !default
 $h2-line-height: 1.4 !default
-$h2-line-height-desktop: pxToRem(54) !default
+$h2-line-height-desktop: pxToRem(68) !default
 $h2-weight: normal !default
 
-$h3-size-desktop: pxToRem(26) !default
-$h3-line-height-desktop: pxToRem(39) !default
+$h3-size-desktop: pxToRem(45) !default
+$h3-line-height-desktop: pxToRem(54) !default
 $h3-weight: normal !default
 
+$h4-size-desktop: pxToRem(26) !default
+$h4-line-height-desktop: pxToRem(39) !default
 $h4-weight: normal !default
+$h4-text-transform: normal !default
+
 $h5-text-transform: normal !default
-
-// for footer titles
-$large-title-size-desktop: pxToRem(52) !default
-$large-title-line-height-desktop: pxToRem(88) !default
-
-$default-duration: 0.3s !default
+$h6-text-transform: normal !default
 
 // Lead
 $lead-font-family: $body-font-family !default
+$lead-size-desktop: pxToRem(38) !default
+$lead-line-height-desktop: pxToRem(50) !default
 
 // Signature
 $signature-font-family: $body-font-family !default
@@ -72,8 +77,21 @@ $quote-font-family: $body-font-family !default
 $meta-font-family: $body-font-family !default
 
 // Small
-$small-size-desktop: Max(16px, #{pxToRem(18)})
-$small-size: pxToRem(16)
+$small-size-desktop: Max(16px, #{pxToRem(18)}) !default
+$small-size: pxToRem(16) !default
+
+$meta-size-desktop: Max(14px, #{pxToRem(16)}) !default
+
+// for footer titles
+$large-title-size-desktop: pxToRem(52) !default
+$large-title-line-height-desktop: pxToRem(88) !default
+
+// transition
+$default-duration: 0.3s !default
+
+// btn
+$btn-border-width: 0 !default
+$btn-border: none !default
 
 // Header
 $header-background: transparent !default
@@ -92,6 +110,12 @@ $hero-height-desktop: 728px !default
 
 // TOC
 $toc-active-color: var(--color-text-alt) !default
+$toc-font-family: $heading-font-family !default
+$toc-font-size-desktop: $meta-size-desktop !default
+$toc-line-height: 1.3 !default
+$toc-title-font-family: $heading-font-family !default
+$toc-font-size-desktop: $meta-size-desktop !default
+
 $zindex-toc: 60
 
 // BLOCKS
@@ -106,7 +130,10 @@ $grid-max-width: pxToRem(1680) !default
 
 $btn-border-radius: 0 !default
 
-// New variables
+$heading-margin-top-desktop: pxToRem(160) !default
+$heading-margin-bottom-desktop: pxToRem(40) !default
+
+// Specifics variables
 $header-logo-font-size: pxToRem(25) !default
 
 // ICONS
