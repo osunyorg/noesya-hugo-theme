@@ -78,6 +78,11 @@
         .taxonomies-list--inline
             .taxonomy-categories + .taxonomy-categories
                 margin-top: $spacing-4
+            .taxonomy-categories-list
+                > li
+                    @include h3
+                    a
+                        --btn-color: var(--color-text-alt)
 
     @include media-breakpoint-up(desktop)
         .taxonomies-list--inline
