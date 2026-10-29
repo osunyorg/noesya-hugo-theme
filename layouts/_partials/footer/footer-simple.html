@@ -53,6 +53,12 @@
   <div class="footer-legals">
     <ul class="nav-legal nav-level-1">
       <li><a href="https://www.noesya.coop/mentions-legales/">mentions légales</a></li>
+      <li>
+        {{ partial "commons/menu.html" (dict
+          "kind" "legal"
+          "context" .
+        ) }}
+      </li>
     </ul>
   </div>
   <div class="footer-social">
