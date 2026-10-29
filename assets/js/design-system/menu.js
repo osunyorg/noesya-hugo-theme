@@ -13,6 +13,7 @@ class Menu {
         this.button.setAttribute("aria-haspopup", true);
         this.links.forEach(link => {
             link.setAttribute('tabindex', '-1');
+            link.setAttribute('aria-hidden', true);
         });
 
         this.button.addEventListener('click', () => {
@@ -34,6 +35,7 @@ class Menu {
         
         this.links.forEach((link) => {
             link.setAttribute('tabindex', this.menuOpened ? '0' : '-1');
+            link.setAttribute('aria-hidden', this.menuOpened ? false : true);
         });
     }
 
