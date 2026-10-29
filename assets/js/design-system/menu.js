@@ -3,6 +3,7 @@ class Menu {
         this.element = document.querySelector(selector);
         this.button = this.element.querySelector('button');
         this.menu = this.element.querySelector('.menu');
+        this.menuList = this.menu.querySelector('ul');
         this.links = this.menu.querySelectorAll('a');
         this.menuOpened = false;
 
@@ -11,9 +12,9 @@ class Menu {
 
     listen() {
         this.button.setAttribute("aria-haspopup", true);
+        this.menuList.setAttribute('aria-hidden', true);
         this.links.forEach(link => {
             link.setAttribute('tabindex', '-1');
-            link.setAttribute('aria-hidden', true);
         });
 
         this.button.addEventListener('click', () => {
@@ -32,10 +33,10 @@ class Menu {
 
     toggleMenu(open = !this.menuOpened) {
         this.menuOpened = open;
+        this.menuList.setAttribute('aria-hidden', this.menuOpened ? false : true);
         
         this.links.forEach((link) => {
             link.setAttribute('tabindex', this.menuOpened ? '0' : '-1');
-            link.setAttribute('aria-hidden', this.menuOpened ? false : true);
         });
     }
 
