@@ -1,24 +1,20 @@
 {{ $is_main_site := false }}
 
 <div class="container">
-  <div class="address" itemscope itemtype="https://schema.org/Organization">
+  <address itemscope itemtype="https://schema.org/PostalAddress">
     <p itemprop="name">noesya Paris</p>
-    <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-      <span itemprop="streetAddress">36 rue Laffitte</span>
-      <span itemprop="postalCode">75009</span> 
-      <span itemprop="addressLocality">Paris</span>
-      <span itemprop="addressCountry">France</span>
-    </address>
-  </div>
-  <div class="address" itemscope itemtype="https://schema.org/Organization">
+    <span itemprop="streetAddress">36 rue Laffitte</span>
+    <span itemprop="postalCode">75009</span>
+    <span itemprop="addressLocality">Paris</span>
+    <span itemprop="addressCountry">France</span>
+  </address>
+  <address itemscope itemtype="https://schema.org/PostalAddress">
     <p itemprop="name">noesya Bordeaux</p>
-    <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-      <span itemprop="streetAddress">15 rue des Bouviers</span>
-      <span itemprop="postalCode">33800</span> 
-      <span itemprop="addressLocality">Bordeaux</span>
-      <span itemprop="addressCountry">France</span>
-    </address>
-  </div>
+    <span itemprop="streetAddress">15 rue des Bouviers</span>
+    <span itemprop="postalCode">33800</span>&nbsp;
+    <span itemprop="addressLocality">Bordeaux</span>
+    <span itemprop="addressCountry">France</span>
+  </address>
   <nav aria-label="Navigation dans l'écosystème" class="ecosystem">
     <ul>
       {{ range site.Data.ecosystem.websites }}

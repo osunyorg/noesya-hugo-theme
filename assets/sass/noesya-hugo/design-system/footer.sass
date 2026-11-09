@@ -82,9 +82,9 @@ footer#document-footer
         width: 100%
         display: flex
         flex-direction: column
-        .address
+        address
             width: columns(3)
-            > p
+            p
                 margin-bottom: $spacing-3
         nav
             margin-left: auto
@@ -118,13 +118,11 @@ footer#document-footer
                 gap: $spacing-3
                 li + li
                     margin: 0
-
     @include media-breakpoint-down(desktop)
-        .address
+        address
             > p
                 margin-bottom: $spacing-3
-        
-            + .address
+            + address
                 margin-top: 0 !important
                 position: absolute
                 right: var(--grid-gutter)
