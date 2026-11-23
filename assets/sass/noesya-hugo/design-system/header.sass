@@ -161,6 +161,11 @@ header#document-header
                 transform: translateY(0)
                 .logo
                     opacity: 0
+    @include media-breakpoint-down(desktop)
+        @if $header-sticky-with-background
+            html.is-scrolling-up:not(.has-menu-opened) &
+                background: var(--color-background)
+
 // Submenus
 header#document-header 
     @include media-breakpoint-up(desktop)
